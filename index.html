@@ -3,231 +3,20 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Bocon · V1 Signal</title>
-<style>
-  :root{
-    --navy:#12294A;--steel:#2E5A8F;--blue:#2563EB;--blue-2:#3B82F6;
-    --ink:#0F1B2D;--slate:#5A6B7B;--bg:#FFFFFF;--soft:#F4F7FB;--sky:#EAF1FB;--line:#E4EAF1;
-    --sans:"Helvetica Neue",Arial,sans-serif;--mono:"SF Mono","Menlo","Consolas",monospace;
-    --r:16px;--shadow:0 18px 44px rgba(18,41,74,.10);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;font:16px/1.6 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none;}
-  img{display:block;}
-  button{font:inherit;cursor:pointer;}
-  :focus-visible{outline:2px solid var(--blue);outline-offset:3px;}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
-
-  /* header */
-  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:24px;}
-  .nav img{height:26px;}
-  .menu{display:flex;gap:30px;font-size:14.5px;font-weight:600;color:#33465a;}
-  .menu a{position:relative;padding:4px 0;}
-  .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--blue);transition:right .25s ease;}
-  .menu a:hover{color:var(--ink);}
-  .menu a:hover::after{right:0;}
-  .nav-cta{display:flex;align-items:center;gap:14px;}
-  .lang{font-size:13px;color:var(--slate);font-weight:600;}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;padding:11px 20px;border-radius:999px;border:1px solid transparent;transition:transform .18s ease,box-shadow .18s ease;}
-  .btn.primary{background:var(--blue);color:#fff;box-shadow:0 8px 20px rgba(37,99,235,.28);}
-  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(37,99,235,.34);}
-  .btn.ghost{background:#fff;color:var(--ink);border-color:var(--line);}
-  .btn.ghost:hover{border-color:#b9c8db;}
-  .btn.dark{background:var(--navy);color:#fff;}
-
-  /* hero */
-  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:76px 0 64px;}
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font:12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel);background:var(--sky);border:1px solid #d6e4f6;padding:8px 13px;border-radius:999px;}
-  .eyebrow .d{width:7px;height:7px;border-radius:50%;background:var(--blue);}
-  h1{font-size:clamp(40px,5.6vw,66px);line-height:1.02;letter-spacing:-.03em;margin:22px 0 20px;font-weight:800;}
-  h1 em{font-style:normal;color:var(--steel);}
-  .lead{font-size:19px;color:var(--slate);max-width:520px;margin:0 0 30px;}
-  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
-  .hero-trust{display:flex;align-items:center;gap:10px;margin-top:24px;font-size:13px;color:var(--slate);}
-  .hero-trust .dot{width:7px;height:7px;border-radius:50%;background:#1FA971;}
-
-  .hero-visual{position:relative;border-radius:24px;min-height:440px;background:linear-gradient(150deg,#dceafb,#eef4fc 55%,#e4edf9);overflow:hidden;box-shadow:var(--shadow);}
-  .hero-visual .grid-fade{position:absolute;inset:0;background-image:linear-gradient(#c9dbf2 1px,transparent 1px),linear-gradient(90deg,#c9dbf2 1px,transparent 1px);background-size:38px 38px;opacity:.5;-webkit-mask-image:radial-gradient(80% 80% at 60% 40%,#000,transparent);mask-image:radial-gradient(80% 80% at 60% 40%,#000,transparent);}
-  .ring{position:absolute;width:300px;height:300px;border:1px solid rgba(46,90,143,.25);border-radius:50%;top:60px;left:52%;transform:translateX(-50%);}
-  .ring::after{content:"";position:absolute;inset:38px;border:1px dashed rgba(46,90,143,.22);border-radius:50%;}
-  .sensor{position:absolute;left:16%;top:210px;width:70%;height:70px;transform:rotate(-8deg);filter:drop-shadow(0 16px 20px rgba(18,41,74,.22));}
-  .sensor .cable{position:absolute;left:0;top:24px;width:34%;height:20px;border-radius:14px 0 0 14px;background:#243b56;}
-  .sensor .head{position:absolute;left:30%;top:8px;width:16%;height:54px;border-radius:8px;background:#9fb2c4;box-shadow:inset 6px 0 0 #6f8298;}
-  .sensor .tube{position:absolute;left:45%;top:22px;width:46%;height:26px;border-radius:0 16px 16px 0;background:linear-gradient(#d3e0ee,#7d93aa 50%,#eef4fb 54%,#a7bcd0);}
-  .chip{position:absolute;background:rgba(255,255,255,.92);border:1px solid #dbe6f4;border-radius:12px;padding:9px 13px;font:12px/1.2 var(--mono);color:var(--navy);box-shadow:0 8px 18px rgba(18,41,74,.10);}
-  .chip b{color:var(--blue);}
-  .chip.c1{top:36px;left:34px;}
-  .chip.c2{bottom:96px;right:30px;}
-  .chip.c3{bottom:38px;left:44px;}
-
-  /* logos / proof */
-  .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--soft);}
-  .proof-in{display:grid;grid-template-columns:repeat(4,1fr);}
-  .stat{padding:26px 24px;border-right:1px solid var(--line);}
-  .stat:last-child{border-right:0;}
-  .stat b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;}
-  .stat span{color:var(--slate);font-size:13.5px;}
-
-  /* section shell */
-  section.blk{padding:88px 0;}
-  .head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px;}
-  .kick{font:12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blue);}
-  h2{font-size:clamp(28px,3.6vw,42px);line-height:1.08;letter-spacing:-.025em;margin:12px 0 0;font-weight:800;}
-  .sub{color:var(--slate);max-width:520px;margin:0;font-size:16px;}
-
-  /* bento products */
-  .bento{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:16px;}
-  .card{position:relative;border:1px solid var(--line);border-radius:var(--r);padding:26px;background:#fff;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;min-height:210px;display:flex;flex-direction:column;}
-  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#cdddf0;}
-  .card .ico{width:46px;height:46px;border-radius:12px;background:var(--sky);color:var(--steel);display:grid;place-items:center;margin-bottom:16px;}
-  .card .ico svg{width:24px;height:24px;}
-  .card h3{margin:0 0 6px;font-size:19px;font-weight:750;}
-  .card p{margin:0;color:var(--slate);font-size:14px;}
-  .card .go{margin-top:auto;padding-top:16px;color:var(--blue);font-weight:700;font-size:13.5px;}
-  .card.feature{grid-column:span 1;grid-row:span 2;background:linear-gradient(160deg,var(--navy),#1c3f6e);color:#fff;border-color:transparent;}
-  .card.feature .ico{background:rgba(255,255,255,.14);color:#bcd6f5;}
-  .card.feature p{color:#b7c9de;}
-  .card.feature .go{color:#8fc0ff;}
-  .card.wide{grid-column:span 2;}
-  .card .bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;pointer-events:none;}
-
-  /* applications band */
-  .apps{background:var(--navy);color:#fff;}
-  .apps .kick{color:#8fc0ff;}
-  .apps .sub{color:#aec4dc;}
-  .app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-  .app{border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:24px;background:rgba(255,255,255,.04);transition:background .2s ease,transform .2s ease;}
-  .app:hover{background:rgba(255,255,255,.09);transform:translateY(-4px);}
-  .app .n{font:12px/1 var(--mono);color:#7fb0ea;}
-  .app h3{margin:14px 0 8px;font-size:18px;}
-  .app p{margin:0;color:#aec4dc;font-size:13.5px;}
-
-  /* cta */
-  .cta{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:44px 46px;border-radius:22px;background:linear-gradient(120deg,var(--blue),#1E40AF);color:#fff;box-shadow:0 22px 50px rgba(37,99,235,.30);}
-  .cta h2{margin:0 0 6px;}
-  .cta p{margin:0;color:#dbe6ff;}
-  .cta .btn.primary{background:#fff;color:var(--blue);box-shadow:none;}
-
-  /* footer */
-  footer{background:#0C1D33;color:#9fb3ca;padding:56px 0 30px;margin-top:10px;}
-  .foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;}
-  footer img{height:24px;filter:brightness(0) invert(1);opacity:.92;}
-  .foot p{font-size:13.5px;max-width:280px;margin:16px 0 0;}
-  .foot h4{color:#fff;font-size:13px;letter-spacing:.05em;margin:0 0 14px;text-transform:uppercase;}
-  .foot a{display:block;font-size:14px;padding:5px 0;color:#9fb3ca;}
-  .foot a:hover{color:#fff;}
-  .foot-bar{border-top:1px solid rgba(255,255,255,.10);margin-top:40px;padding-top:22px;font-size:12.5px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
-
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
-  .reveal.in{opacity:1;transform:none;}
-
-  @media (max-width:960px){
-    .hero{grid-template-columns:1fr;gap:34px;}
-    .bento{grid-template-columns:repeat(2,1fr);}
-    .card.feature{grid-row:span 1;}.card.wide{grid-column:span 2;}
-    .app-grid{grid-template-columns:repeat(2,1fr);}
-    .foot{grid-template-columns:1fr 1fr;}
-    .menu{display:none;}
-  }
-  @media (max-width:560px){
-    .proof-in{grid-template-columns:1fr 1fr;}.stat:nth-child(2){border-right:0;}
-    .bento,.app-grid{grid-template-columns:1fr;}.card.wide{grid-column:span 1;}
-    .cta{flex-direction:column;align-items:flex-start;}
-    .foot{grid-template-columns:1fr;}
-  }
-  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{opacity:1;transform:none;transition:none;}.btn,.card,.app{transition:none;}}
-
-  /* Responsive refinement: shared gutters and accessible navigation. */
-  :root{--gutter:28px;}
-  .wrap{padding-inline:var(--gutter);}
-  section.wrap.blk,section.wrap.hero{padding-inline:var(--gutter);}
-  [id]{scroll-margin-top:90px;}
-  .skip{position:absolute;left:20px;top:-80px;z-index:100;background:white;color:var(--ink);padding:12px;}
-  .skip:focus{top:10px;}
-  .brand{display:block;flex-shrink:0;}
-  .brand img{width:154px;height:auto;}
-  .nav{gap:16px;}
-  .menu{gap:20px;}
-  .menu a{display:flex;align-items:center;min-height:44px;}
-  .nav-cta{flex-shrink:0;}
-  .menu-toggle{display:none;min-height:44px;padding:8px 12px;border:1px solid var(--line);background:white;color:var(--ink);border-radius:4px;}
-  .btn{min-height:44px;justify-content:center;text-align:center;}
-  .lang{white-space:nowrap;}
-  .reveal{opacity:1;transform:none;}
-  .foot a{min-height:44px;display:flex;align-items:center;}
-  .foot .footer-brand{font-size:27px;font-weight:800;color:white;letter-spacing:.06em;}
-  .support-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px;}
-  .support-card{padding:24px;border:1px solid var(--line);background:var(--panel,var(--soft));border-radius:8px;}
-  .support-card h3{margin:0 0 10px;font-size:19px;}
-  .support-card p{color:var(--slate);margin:0 0 18px;}
-  .text-link{display:inline-flex;align-items:center;min-height:44px;color:var(--blue);font-weight:700;}
-  .app{display:block;}.app-link{display:block;margin-top:18px;font-size:14px;font-weight:700;}
-  .contact-copy{max-width:600px;}
-  .stat{min-width:0;}.stat b{font-size:clamp(16px,2vw,22px);overflow-wrap:anywhere;}.stat span{display:block;}
-  .spec-note{font-size:13px;color:var(--slate);line-height:1.6;}
-  @media(max-width:1100px){
-    header .nav{position:relative;}
-    .menu-toggle{display:block;}
-    header .menu{display:none;position:absolute;top:100%;left:var(--gutter);right:var(--gutter);padding:16px;background:white;box-shadow:0 12px 28px #12294a22;border:1px solid var(--line);max-height:calc(100dvh - 90px);overflow:auto;}
-    header .menu[data-open]{display:flex;flex-direction:column;gap:0;}
-    .nav-cta{margin-left:auto;gap:10px;}
-  }
-  @media(max-width:760px){
-    :root{--gutter:24px;}
-    section.blk{padding-block:52px;}
-    .head{display:block;}.head .sub{margin-top:16px;}
-    .support-grid{grid-template-columns:1fr;gap:16px;}
-    .proof-in{grid-template-columns:repeat(2,minmax(0,1fr));}
-    .stat{padding:20px 12px;border-bottom:1px solid var(--line);}
-    .stat:nth-child(2n){border-right:0;}
-    .stat:nth-last-child(-n+2){border-bottom:0;}
-    .foot{grid-template-columns:1fr 1fr;gap:28px;}.foot>div:first-child{grid-column:1/-1;}
-    .foot-bar{overflow-wrap:anywhere;}
-  }
-  @media(max-width:560px){
-    .brand img{width:112px;}.nav{height:66px;gap:8px;}.nav-cta{gap:8px;}
-    .nav-cta .lang{display:none;}.nav-cta .btn{font-size:13px;padding:9px 12px;}
-    .menu-toggle{font-size:13px;padding:8px 10px;}
-    h1{font-size:38px;line-height:1.08;}.lead{font-size:17px;}
-    .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;}
-    .hero-actions .btn{width:100%;}
-    .cta{padding:28px 24px;gap:22px;}.cta .btn{width:100%;}
-  }
-
-  .bento{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:auto;}.card.feature,.card.wide{grid-column:auto;grid-row:auto;}.card{min-height:245px;}
-  .apps>.blk{padding-block:64px;}.apps .app-link{color:#8fc0ff;}
-  @media(max-width:960px){.bento{grid-template-columns:repeat(2,minmax(0,1fr));}}
-  @media(max-width:760px){.hero{padding-block:42px;gap:28px;}.hero-visual{min-height:280px;}.sensor{top:140px;}.ring{top:15px;width:250px;height:250px;}.chip.c2{bottom:68px;}.chip.c3{bottom:22px;}.apps>.blk{padding-block:48px;}.bento{grid-template-columns:1fr;}.card{min-height:0;}.card .go{padding-top:24px;}.eyebrow{font-size:10px;line-height:1.5;letter-spacing:.06em;}}
-
-  /* option switcher bar */
-  .optbar{position:sticky;top:0;z-index:60;background:#0C1D33;color:#fff;height:56px;display:flex;align-items:center;justify-content:center;gap:16px;padding:0 20px;font-family:"Helvetica Neue",Arial,sans-serif;border-bottom:2px solid #2563EB;box-shadow:0 4px 16px rgba(12,29,51,.16);}
-  .optbar .lbl{font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap;}
-  .optbar .lbl b{color:#7fb0ff;font-weight:700;}
-  .optseg{display:inline-flex;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);border-radius:999px;padding:5px;gap:4px;}
-  .optseg a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#dbe6f4;padding:9px 20px;border-radius:999px;text-decoration:none;transition:background .18s ease,color .18s ease;}
-  .optseg a .num{font:11px/1 "SF Mono","Menlo","Consolas",monospace;opacity:.55;}
-  .optseg a.on{background:#2563EB;color:#fff;box-shadow:0 4px 14px rgba(37,99,235,.5);}
-  .optseg a.on .num{opacity:.85;}
-  .optseg a:not(.on):hover{color:#fff;background:rgba(255,255,255,.10);}
-  @media (max-width:640px){.optbar .lbl{display:none;}}
-
-  header{top:56px;}[id]{scroll-margin-top:146px;}
-  @media(max-width:1100px){header .menu{max-height:calc(100dvh - 150px);}}
-</style>
+<title>Bocon | Temperature sensing, engineered to fit</title>
+<meta name="description" content="Explore Bocon temperature sensors for OEMs and industry. Technical data, heat-metering applications, and product documentation."/>
+<link rel="stylesheet" href="assets/signal.css"/>
+<link rel="stylesheet" href="assets/mvp.css"/>
 </head>
 <body id="top">
-  <div class="optbar"><span class="lbl">Two homepage directions — <b>pick one:</b></span><div class="optseg" role="navigation" aria-label="Design option"><a class="on" aria-current="page" href="index.html"><span class="num">01</span>Signal</a><a href="grid.html"><span class="num">03</span>Grid</a></div></div>
   <a class="skip" href="#main">Skip to content</a>
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Bocon home"><img src="logo/bocon-logo.jpg" alt="Bocon"/></a>
-      <nav class="menu" id="main-menu" aria-label="Main navigation"><a href="#products">Products</a><a href="#applications">Applications</a><a href="#oem">OEM Support</a><a href="#quality">Quality</a><a href="#resources">Resources</a></nav>
-      <div class="nav-cta"><span class="lang">EN · 中文</span><a class="btn primary" href="#contact">Contact</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu</button></div>
+      <nav class="menu" id="main-menu" aria-label="Main navigation"><a href="tm1101-51.html">Sensors</a><a href="heat-metering.html">Application</a><a href="tm1101-51.html#documents">Downloads</a></nav>
+      <div class="nav-cta"><span class="lang">EN</span><a class="btn primary" href="contact.html">Contact</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu</button></div>
     </div>
-  </header>
+  </header><aside class="mvp-guide" aria-label="MVP preview guide"><div class="wrap mvp-guide-inner"><div class="mvp-guide-label"><span class="mvp-indicator" aria-hidden="true"></span><div><b>MVP preview</b><span>One sensor family · one application</span></div></div><nav class="mvp-steps" aria-label="Pages available in this MVP"><a href="#main" aria-current="page" style="--step:0"><span class="mvp-step-number" aria-hidden="true">01</span><span>Home</span></a><a href="tm1101-51.html" style="--step:1"><span class="mvp-step-number" aria-hidden="true">02</span><span>Sensor family</span></a><a href="heat-metering.html" style="--step:2"><span class="mvp-step-number" aria-hidden="true">03</span><span>Application</span></a><a href="contact.html" style="--step:3"><span class="mvp-step-number" aria-hidden="true">04</span><span>Enquiry</span></a></nav></div></aside>
 
   <main id="main">
     <section class="wrap hero">
@@ -236,53 +25,35 @@
         <h1>Temperature sensing, <em>engineered to fit.</em></h1>
         <p class="lead">Bocon designs and manufactures temperature sensors, sensing elements, and transmitters for demanding measurement — from OEM integration to industrial production lines.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="#products">Explore products →</a>
-          <a class="btn ghost" href="#applications">Find your application</a>
+          <a class="btn primary" href="tm1101-51.html">Explore the sensors →</a>
+          <a class="btn ghost" href="heat-metering.html">Explore heat metering</a>
         </div>
         <div class="hero-trust"><span class="dot"></span> Custom configurations reviewed by Bocon's technical team</div>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="grid-fade"></div><div class="ring"></div>
         <div class="sensor"><div class="cable"></div><div class="head"></div><div class="tube"></div></div>
-        <div class="chip c1">RTD · Pt100</div>
+        <div class="chip c1">RTD · Pt500 / Pt1000</div>
         <div class="chip c2"><b>Custom configurations</b></div>
-        <div class="chip c3"><b>Industrial &amp; OEM</b></div>
+        <div class="chip c3"><b>Heat metering</b></div>
       </div>
     </section>
 
-    <div class="proof"><div class="wrap proof-in">
-      <div class="stat"><b>OEM support</b><span>Custom dimensions &amp; connections</span></div>
-      <div class="stat"><b>Product choice</b><span>Sensors, elements &amp; instruments</span></div>
-      <div class="stat"><b>Documents</b><span>Ask for model-specific information</span></div>
-      <div class="stat"><b>Samples</b><span>Discuss samples &amp; evaluation</span></div>
-    </div></div>
-
-    <section class="wrap blk reveal" id="products">
-      <div class="head">
-        <div><div class="kick">One platform, many forms</div><h2>Find the right product family</h2></div>
-        <p class="sub">Browse by what you measure, how the sensor installs, or the component you want to integrate.</p>
-      </div>
-      <div class="bento">
-        <a class="card feature" href="#contact"><div class="bg-grid"></div><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 13h7V7h9"/><circle cx="4" cy="13" r="2"/><path d="M20 7v10"/></svg></div><h3>RTD sensors</h3><p>Wire, surface, pipe, bearing, junction-box, HVAC, and specialty resistance sensors — the core of the range.</p><span class="go">Browse RTDs →</span></a>
-        <a class="card wide" href="#contact"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 4v16M18 4v16M6 8h12M6 16h12"/></svg></div><h3>Thermocouples</h3><p>K, J, N, T and other configurations for fast, high-temperature measurement.</p><span class="go">Explore thermocouples →</span></a>
-        <a class="card" href="#contact"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="7"/><path d="M3 12h18"/></svg></div><h3>Heat meter sensors</h3><p>Matched Pt500 / Pt1000 pairs for building heating and cooling.</p><span class="go">View range →</span></a>
-        <a class="card" href="#contact"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 5v14M5 9h14"/></svg></div><h3>Platinum elements</h3><p>Pt100 / Pt1000 thin-film elements for OEM assemblies.</p><span class="go">See elements →</span></a>
-        <a class="card wide" href="#contact"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M8 10h8M8 14h5"/></svg></div><h3>Transmitters</h3><p>Signal conversion for industrial measurement and field systems.</p><span class="go">Explore transmitters →</span></a>
-<a class="card" href="#contact"><div class="ico" aria-hidden="true">°C</div><h3>Measurement &amp; test</h3><p>Precision instruments and response-time test equipment for verification.</p><span class="go">Discuss test equipment →</span></a>
+    <section class="wrap blk featured-section" id="products" aria-labelledby="featured-title">
+      <div class="featured-product">
+        <div class="featured-copy"><div class="kick">In focus · Heat meter sensors</div><h2 id="featured-title">A closer look at<br>the temperature difference.</h2><p class="sub">Explore standard and fast-response TM1101 sensor pairs. Select a model to see its performance, construction, wiring, and original documentation.</p><a class="btn primary" href="tm1101-51.html">Explore the sensor family →</a><a class="text-link" href="heat-metering.html">Understand the application ↗</a></div>
+        <div class="featured-visual"><span class="model-label">TM1101/51-5-1500</span><img src="assets/tm1101-51-cable-options.png" width="1390" height="430" alt="TM1101/51 heat meter sensor pairs with silicone, PVC, and PU cables, from the Bocon brochure" loading="lazy"><div class="visual-specs"><span>Pt500 / Pt1000</span><span>M10 × 1</span><span>IP68</span></div></div>
       </div>
     </section>
 
     <section class="apps" id="applications">
       <div class="wrap blk reveal">
         <div class="head">
-          <div><div class="kick">Start with the measurement</div><h2>Built around your application</h2></div>
-          <p class="sub">Select the environment, installation, and performance demands that matter to your team.</p>
+          <div><div class="kick">Start with the measurement</div><h2>Heat metering, in focus</h2></div>
+          <p class="sub">Explore matched temperature measurement for building heating and cooling systems.</p>
         </div>
-        <div class="app-grid">
-          <a class="app" href="#contact"><div class="n">01</div><h3>Heat metering</h3><p>Matched sensor pairs with a clear route to OEM qualification.</p><span class="app-link">Discuss this application →</span></a>
-          <a class="app" href="#contact"><div class="n">02</div><h3>HVAC &amp; refrigeration</h3><p>Air, liquid, surface, and pipe measurement for building services.</p><span class="app-link">Discuss this application →</span></a>
-          <a class="app" href="#contact"><div class="n">03</div><h3>Industrial machinery</h3><p>Vibration-resistant, bearing, and high-temperature configurations.</p><span class="app-link">Discuss this application →</span></a>
-          <a class="app" href="#contact"><div class="n">04</div><h3>Precision &amp; specialist</h3><p>Lab, food, battery, semiconductor, and marine use cases.</p><span class="app-link">Discuss this application →</span></a>
+        <div class="app-grid mvp-application-grid">
+          <a class="app" href="heat-metering.html"><div class="n">01</div><h3>Heat metering</h3><p>Matched sensor pairs for heating and cooling measurement.</p><span class="app-link">Explore heat metering →</span></a>
         </div>
       </div>
     </section>
@@ -290,16 +61,16 @@
     <section class="wrap blk" id="resources"><span id="oem"></span>
       <div class="head"><div class="kick">Supplier evaluation</div><h2>Get the information your team needs</h2><p class="sub">Tell us the product or application so we can help identify the relevant documents and next steps.</p></div>
       <div class="support-grid">
-        <div class="support-card" id="quality"><h3>Quality &amp; documentation</h3><p>Request applicable certificates, testing information, and traceability details for your selected product.</p><a class="text-link" href="mailto:xuyan_cheng@bocon-sensor.com?subject=Supplier%20documentation%20request">Request supplier documents →</a></div>
-        <div class="support-card"><h3>Datasheets &amp; drawings</h3><p>Include your model number or installation requirements to request the relevant technical documentation.</p><a class="text-link" href="mailto:xuyan_cheng@bocon-sensor.com?subject=Datasheet%20and%20drawing%20request">Request technical documents →</a></div>
-        <div class="support-card"><h3>Samples &amp; qualification</h3><p>Share the measurement range, installation, connection, and quantities you need to evaluate.</p><a class="text-link" href="mailto:xuyan_cheng@bocon-sensor.com?subject=Sample%20evaluation%20enquiry">Discuss sample requirements →</a></div>
+        <div class="support-card" id="quality"><h3>Quality &amp; documentation</h3><p>Request applicable certificates, testing information, and traceability details for your selected product.</p><a class="text-link" href="contact.html?intent=documents">Request supplier documents →</a></div>
+        <div class="support-card"><h3>Heat meter sensor brochure</h3><p>Read the original English brochure, including the complete TM1101/51-5-1500 technical data.</p><a class="text-link" href="documents/bocon-heat-meter-sensors-en.pdf">Open brochure · PDF ↗</a></div>
+        <div class="support-card"><h3>Samples &amp; qualification</h3><p>Share the measurement range, installation, connection, and quantities you need to evaluate.</p><a class="text-link" href="contact.html?intent=sample">Discuss sample requirements →</a></div>
       </div>
     </section>
 
     <section class="wrap blk reveal" id="contact">
       <div class="cta">
         <div><h2>Have a temperature requirement?</h2><p>Share your measurement range, installation, connection, and quantities. Send a drawing if you have one.</p></div>
-        <a class="btn primary" href="mailto:xuyan_cheng@bocon-sensor.com?subject=Temperature%20sensing%20enquiry">Email your requirements →</a>
+        <a class="btn primary" href="contact.html">Discuss your requirements →</a>
       </div>
     </section>
 
@@ -309,32 +80,17 @@
   <footer id="about">
     <div class="wrap">
       <div class="foot">
-        <div><a href="#top" class="footer-brand">BOCON</a><p>Nanjing Bocon Science &amp; Technology Co., Ltd — precision temperature sensing for OEMs and industry.</p></div>
-        <div><h4>Products</h4><a href="#products">RTD sensors</a><a href="#products">Thermocouples</a><a href="#products">Heat meter sensors</a><a href="#products">Transmitters</a></div>
-        <div><h4>Company</h4><a href="#about">About</a><a href="#quality">Quality</a><a href="#contact">Contact</a></div>
-        <div><h4>Resources</h4><a href="#resources">Downloads</a><a href="#quality">Certificates</a><a href="#resources">Technical docs</a></div>
-      </div>
-      <div class="foot-bar"><span>© Bocon Sensing Technology</span><span>xuyan_cheng@bocon-sensor.com</span></div>
+<div><a href="index.html" class="footer-brand">BOCON</a><p>Nanjing Bocon Science &amp; Technology Co., Ltd — precision temperature sensing for OEMs and industry.</p></div>
+<div><h4>Explore</h4><a href="tm1101-51.html">Heat meter sensors</a><a href="heat-metering.html">Heat metering</a></div>
+<div><h4>Enquiries</h4><a href="contact.html?intent=sample&amp;product=tm1101-51">Request samples</a><a href="contact.html?intent=quote&amp;product=tm1101-51">Request a quote</a><a href="contact.html">Contact</a></div>
+<div><h4>Documents</h4><a href="documents/bocon-heat-meter-sensors-en.pdf">English brochure ↗</a><a href="tm1101-51.html#specifications">Technical data</a><a href="contact.html?intent=documents&amp;product=tm1101-51">Request documents</a></div>
+</div>
+      <div class="foot-bar"><span>© Bocon Sensing Technology</span><span>English · MVP preview</span></div>
     </div>
   </footer>
 
-  <script>
-    (function(){var r=matchMedia('(prefers-reduced-motion: reduce)').matches;var els=document.querySelectorAll('.reveal');
-    if(r||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});return;}
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
-    els.forEach(function(e){io.observe(e);});})();
-  </script>
-<script>
-    (() => {
-      const button = document.querySelector('.menu-toggle');
-      const menu = document.getElementById('main-menu');
-      const close = () => { menu.removeAttribute('data-open'); button.setAttribute('aria-expanded', 'false'); };
-      button.addEventListener('click', () => { const open = button.getAttribute('aria-expanded') !== 'true'; button.setAttribute('aria-expanded', String(open)); menu.toggleAttribute('data-open', open); });
-      menu.addEventListener('click', event => { if (event.target.closest('a')) close(); });
-      document.addEventListener('keydown', event => { if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') { close(); button.focus(); } });
-      document.addEventListener('click', event => { if (!event.target.closest('header')) close(); });
-      matchMedia('(max-width:1100px)').addEventListener('change', close);
-    })();
-  </script>
+
+
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
