@@ -90,8 +90,8 @@ header{position:sticky;top:0;z-index:var(--z-header);background:var(--header-bg)
 .menu-item[open] summary::after{transform:translateY(1px) rotate(-135deg);}
 .menu summary::before,.menu-list>li>a::before{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--color-accent);transition:right var(--duration) var(--ease);}
 .menu summary:hover,.menu-list>li>a:hover{color:var(--color-ink);}
-.menu summary:hover::before,.menu-list>li>a:hover::before,.menu-item:has([aria-current=page]) summary::before,.menu-list>li>a[aria-current=page]::before{right:0;}
-.menu-item[open] summary,.menu-item:has([aria-current=page]) summary,.menu-list>li>a[aria-current=page]{color:var(--color-accent);}
+.menu summary:hover::before,.menu-list>li>a:hover::before,.menu-item:has([aria-current=page]) summary::before,.menu-list>li>a[aria-current]::before{right:0;}
+.menu-item[open] summary,.menu-item:has([aria-current=page]) summary,.menu-list>li>a[aria-current]{color:var(--color-accent);}
 /* Panels: dropdown under its item; .mega spans the content width */
 .menu-item{position:relative;}
 .menu-item.mega{position:static;}
@@ -390,3 +390,14 @@ footer{background:var(--color-footer-bg);color:var(--color-footer-text);padding:
   .product-photo{height:160px;}
   .table-scroll{overflow:visible;}
 }
+
+/* Products overview grid */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--space-6);margin-top:var(--space-6);}
+.product-card{display:flex;flex-direction:column;background:var(--color-bg);border:1px solid var(--color-line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none;transition:border-color .15s,box-shadow .15s;}
+.product-card:hover{border-color:var(--color-accent);box-shadow:var(--shadow-menu);}
+.product-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--color-surface-soft);border-bottom:1px solid var(--color-line);}
+.product-card div{padding:var(--space-5);}
+.product-card h3{margin:var(--space-1) 0 var(--space-2);}
+.product-card p{margin:0;color:var(--color-slate);font-size:var(--text-body-sm);}
+.product-card-more{background:var(--color-surface-soft);justify-content:center;}
+.product-card-more .text-link{display:inline-block;margin-top:var(--space-4);}

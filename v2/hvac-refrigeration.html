@@ -10,14 +10,7 @@
       <a class="brand" href="index.html" aria-label="Bocon home"><img src="logo/bocon-wordmark.png" width="272" height="92" alt="Bocon"/></a>
       <nav class="menu" id="main-menu" aria-label="Main navigation">
         <ul class="menu-list">
-          <li><details class="menu-item" name="main-menu"><summary>Products</summary><ul class="menu-panel">
-              <li><a href="products/heat-meter-sensors.html">Heat Meter Sensor Pairs</a></li>
-              <li><a href="tm1101.html">TM1101 Wire-Type RTD</a></li>
-              <li><a href="tm1111.html">TM1111 Pipe-Mount RTD</a></li>
-              <li><a href="tm1401.html">TM1401 Junction Box RTD</a></li>
-              <li><a href="tm1705.html">TM1705 HVAC Duct RTD</a></li>
-              <li><a href="contact.html?intent=application">Other models on request</a></li>
-          </ul></details></li>
+          <li><a href="products.html">Products</a></li>
           <li><details class="menu-item" name="main-menu"><summary>Applications</summary><ul class="menu-panel">
               <li><a href="heat-metering.html">Heat Metering</a></li>
               <li><a href="hvac-refrigeration.html" aria-current="page">HVAC &amp; Refrigeration</a></li>
@@ -41,37 +34,33 @@
     </div>
   </div>
   <figure class="application-visual">
-    <svg viewBox="0 0 500 340" role="img" aria-labelledby="hvac-title hvac-desc">
+    <svg viewBox="0 0 500 360" role="img" aria-labelledby="hvac-title hvac-desc">
       <title id="hvac-title">Four temperature measurement points in an HVAC and chilled-water system</title>
-      <desc id="hvac-desc">Schematic showing an air duct flanged probe (TM1705), a chiller well flying-lead probe (TM1101), a clamp-on pipe saddle sensor (TM1111), and a header terminal-head sensor (TM1401).</desc>
-      <!-- Air Duct -->
-      <rect x="28" y="34" width="210" height="92" rx="10" fill="#fff" stroke="#b2c7df" stroke-width="1.5"/>
-      <text x="44" y="60" fill="#2e5a8f" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="600">Supply Air Duct</text>
-      <path d="M44 82 H150" stroke="#8baccb" stroke-width="2" stroke-dasharray="4 3"/>
-      <rect x="176" y="20" width="34" height="14" rx="3" fill="#12294a"/>
-      <rect x="189" y="34" width="8" height="68" rx="2" fill="#4677ae"/>
-      <text x="44" y="112" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">1 · TM1705 Flanged Duct RTD</text>
-
-      <!-- Chiller / Heat Pump Manifold -->
-      <rect x="262" y="34" width="210" height="92" rx="10" fill="#fff" stroke="#b2c7df" stroke-width="1.5"/>
-      <text x="278" y="60" fill="#2e5a8f" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="600">Chiller / Heat Pump Well</text>
-      <circle cx="430" cy="78" r="11" fill="#fff" stroke="#2563eb" stroke-width="3"/>
-      <text x="278" y="112" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">2 · TM1101 Flying-Lead Probe</text>
-
-      <!-- Hydronic Pipe -->
-      <rect x="28" y="182" width="444" height="48" rx="8" fill="#eaf1fb" stroke="#4677ae" stroke-width="2"/>
-      <text x="48" y="211" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="600">Chilled / Hot Water Piping</text>
-
-      <!-- Clamp-on TM1111 -->
-      <rect x="210" y="170" width="54" height="14" rx="3" fill="#2563eb"/>
-      <line x1="224" y1="182" x2="224" y2="230" stroke="#12294a" stroke-width="2" stroke-dasharray="3 2"/>
-      <line x1="250" y1="182" x2="250" y2="230" stroke="#12294a" stroke-width="2" stroke-dasharray="3 2"/>
-      <text x="176" y="264" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">3 · TM1111 Pipe Clamp</text>
-
-      <!-- Terminal Head TM1401 -->
-      <circle cx="396" cy="156" r="14" fill="#12294a"/>
-      <rect x="392" y="170" width="8" height="42" fill="#4677ae"/>
-      <text x="340" y="264" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">4 · TM1401 Terminal Head</text>
+      <desc id="hvac-desc">An air duct with a flanged TM1705 probe inserted from above, and a water pipe with a TM1111 clamp-on sensor, a TM1401 terminal-head probe, and a TM1101 flying-lead probe in a thermowell.</desc>
+      <defs><marker id="hv-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#728daa"/></marker></defs>
+      <!-- air duct -->
+      <rect x="20" y="58" width="460" height="74" rx="6" fill="#fff" stroke="#b2c7df" stroke-width="2"/>
+      <text x="36" y="80" fill="#2e5a8f" font-family="Helvetica Neue,Arial,sans-serif" font-size="13">Air duct</text>
+      <path d="M40 104h60M40 118h60M330 104h60M330 118h60" stroke="#728daa" stroke-width="2" marker-end="url(#hv-arrow)"/>
+      <rect x="196" y="20" width="56" height="30" rx="4" fill="#12294a"/><rect x="186" y="50" width="76" height="8" rx="2" fill="#4677ae"/>
+      <rect x="219" y="58" width="10" height="58" fill="#4677ae"/><rect x="219" y="104" width="10" height="12" fill="none" stroke="#fff" stroke-dasharray="2 2"/>
+      <circle cx="278" cy="28" r="10" fill="#2563eb"/><text x="278" y="32.5" fill="#fff" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="700">1</text><text x="294" y="32.5" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700">TM1705 duct sensor</text><text x="294" y="49" fill="#5a6b7b" font-family="Helvetica Neue,Arial,sans-serif" font-size="11.5">Flange-mounted in the airstream</text>
+      <!-- water pipe -->
+      <rect x="20" y="236" width="460" height="36" rx="18" fill="#8baccb"/>
+      <text x="36" y="259" fill="#fff" font-family="Helvetica Neue,Arial,sans-serif" font-size="13">Chilled / hot water pipe</text>
+      <path d="M440 254h20" stroke="#fff" stroke-width="2" marker-end="url(#hv-arrow)"/>
+      <!-- 2: clamp on pipe surface -->
+      <rect x="196" y="226" width="40" height="12" rx="3" fill="#2563eb"/><rect x="204" y="234" width="24" height="42" rx="2" fill="none" stroke="#12294a" stroke-width="2"/>
+      <path d="M216 226v-30c0-14 18-14 18-28" fill="none" stroke="#c0392b" stroke-width="2"/>
+      <!-- 3: terminal head into pipe -->
+      <rect x="296" y="186" width="44" height="30" rx="8" fill="#12294a"/><rect x="310" y="216" width="16" height="12" fill="#4677ae"/><rect x="314" y="228" width="8" height="30" fill="#4677ae"/>
+      <!-- 4: flying lead probe in thermowell -->
+      <rect x="372" y="218" width="24" height="18" rx="2" fill="#c9a24a"/><rect x="380" y="236" width="8" height="24" fill="#4677ae"/>
+      <path d="M384 218v-12c0-12 22-10 22-28" fill="none" stroke="#c0392b" stroke-width="2"/>
+      <circle cx="36" cy="312" r="10" fill="#2563eb"/><text x="36" y="316.5" fill="#fff" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="700">2</text><text x="52" y="316.5" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700">TM1111 clamp</text><text x="52" y="333" fill="#5a6b7b" font-family="Helvetica Neue,Arial,sans-serif" font-size="11.5">Pipe surface, no drilling</text>
+      <circle cx="196" cy="312" r="10" fill="#2563eb"/><text x="196" y="316.5" fill="#fff" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="700">3</text><text x="212" y="316.5" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700">TM1401 head</text><text x="212" y="333" fill="#5a6b7b" font-family="Helvetica Neue,Arial,sans-serif" font-size="11.5">Plant-room headers</text>
+      <circle cx="356" cy="312" r="10" fill="#2563eb"/><text x="356" y="316.5" fill="#fff" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="700">4</text><text x="372" y="316.5" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" font-weight="700">TM1101 probe</text><text x="372" y="333" fill="#5a6b7b" font-family="Helvetica Neue,Arial,sans-serif" font-size="11.5">Wells &amp; fittings</text>
+      <circle cx="216" cy="160" r="10" fill="#2563eb"/><text x="216" y="164.5" fill="#fff" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="700">2</text><circle cx="318" cy="170" r="10" fill="#2563eb"/><text x="318" y="174.5" fill="#fff" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="700">3</text><circle cx="406" cy="162" r="10" fill="#2563eb"/><text x="406" y="166.5" fill="#fff" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="700">4</text>
     </svg>
     <figcaption>Typical RTD mounting points across air handling units, chillers, and hydronic loops.</figcaption>
   </figure>
@@ -192,7 +181,7 @@
 </section>
 </main><footer><div class="wrap"><div class="foot">
 <div><a href="index.html" class="footer-brand">BOCON</a><p>Dalian Bocon Science &amp; Technology Co., Ltd. designs and manufactures Pt100, Pt500, and Pt1000 temperature sensors for OEMs and industry.</p></div>
-<div><h4>Products</h4><a href="products/heat-meter-sensors.html">Heat meter sensor pairs</a><a href="tm1101.html">TM1101 wire-type RTD</a><a href="tm1111.html">TM1111 pipe-mount RTD</a><a href="tm1401.html">TM1401 junction box RTD</a><a href="tm1705.html">TM1705 HVAC duct RTD</a></div>
+<div><h4>Products</h4><a href="products.html">All products</a><a href="products/heat-meter-sensors.html">Heat meter sensor pairs</a><a href="tm1101.html">TM1101 wire-type RTD</a><a href="tm1111.html">TM1111 pipe-mount RTD</a><a href="tm1401.html">TM1401 junction box RTD</a><a href="tm1705.html">TM1705 HVAC duct RTD</a></div>
 <div><h4>Applications &amp; OEM</h4><a href="heat-metering.html">Heat metering</a><a href="hvac-refrigeration.html">HVAC &amp; refrigeration</a><a href="for-oems.html">For OEMs</a><a href="contact.html">Contact</a></div>
 <div><h4>Documents</h4><a href="documents/bocon-heat-meter-sensors-en.pdf">Heat meter brochure (PDF) ↗</a><a href="contact.html?intent=documents">Request certificates</a></div>
 </div><div class="foot-bar"><span>© 2026 Dalian Bocon Science &amp; Technology Co., Ltd.</span><span class="legal-links"><a href="impressum.html">Legal notice</a><a href="privacy.html">Privacy</a></span></div></div></footer><script src="assets/site.js" defer></script></body></html>
