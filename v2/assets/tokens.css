@@ -1,0 +1,117 @@
+/* Bocon design tokens.
+   Every colour, type size, space, radius, and motion value used by site.css is defined here.
+   No selectors other than :root. Change a value here and it changes everywhere. */
+:root{
+  /* Brand */
+  --color-navy:#12294A;
+  --color-steel:#2E5A8F;
+  --color-accent:#2563EB;
+  --color-accent-hover:#1D4ED8;
+
+  /* Text */
+  --color-ink:#0F1B2D;
+  --color-slate:#5A6B7B;
+  --color-nav-text:#33465A;
+
+  /* Surfaces */
+  --color-bg:#FFFFFF;
+  --color-surface-soft:#F4F7FB;
+  --color-surface-sky:#EAF1FB;
+  --color-surface-diagram:#EEEEEE; /* matches the wiring diagram PNG background */
+  --gradient-stage:linear-gradient(150deg,#E7F0FB,#F7FAFF);
+  --gradient-visual:linear-gradient(150deg,#EEF4FC,#E4EDF9);
+
+  /* Lines */
+  --color-line:#E4EAF1;
+  --color-line-sky:#D6E4F6;
+  --color-line-strong:#BDC9D7;
+  --color-line-hover:#B9C8DB;
+
+  /* On dark (navy band) and on accent (blue CTA band) */
+  --color-on-dark:#FFFFFF;
+  --color-on-dark-muted:#BFD0E4;
+  --color-on-dark-line:rgba(255,255,255,.16);
+  --color-on-accent:#FFFFFF;
+  --color-on-accent-muted:#DBE6FF;
+  --color-on-accent-hover:#EEF3FF;
+
+  /* Footer */
+  --color-footer-bg:#0C1D33;
+  --color-footer-text:#9FB3CA;
+  --color-footer-text-strong:#C3D4E7;
+  --color-footer-line:rgba(255,255,255,.10);
+
+  /* Typography */
+  --font-sans:"Helvetica Neue",Arial,sans-serif;
+  --font-mono:"SF Mono","Menlo","Consolas",monospace;
+  --text-micro:11px;
+  --text-caption:12px;
+  --text-small:13px;
+  --text-body-sm:14px;
+  --text-ui:14.5px;
+  --text-body:16px;
+  --text-lead-sm:17px;
+  --text-lead:19px;
+  --text-h4:16px;
+  --text-h3:19px;
+  --text-h3-lg:23px;
+  --text-h2-sm:26px;
+  --text-h2-md:30px;
+  --text-h2-lg:34px;
+  --text-h2:clamp(28px,3.6vw,42px);
+  --text-h2-split:clamp(28px,3.2vw,38px);
+  --text-h1-sm:38px;
+  --text-h1-compact:clamp(34px,4vw,49px);
+  --text-h1:clamp(38px,5vw,56px);
+  --text-display:clamp(40px,5.6vw,66px);
+  --leading-body:1.6;
+  --leading-tight:1.08;
+  --tracking-tight:-.025em;
+  --tracking-label:.14em;
+  --weight-medium:500;
+  --weight-semibold:600;
+  --weight-bold:700;
+  --weight-heavy:800;
+
+  /* Space */
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-7:28px;
+  --space-8:32px;
+  --space-10:40px;
+  --space-12:48px;
+  --space-14:56px;
+  --section-y:72px;
+  --section-y-lg:88px;
+
+  /* Layout */
+  --container:1200px;
+  --gutter:28px;
+  --header-h:70px;
+  --tap-min:44px;
+
+  /* Shape */
+  --radius-pill:999px;
+  --radius:16px;
+  --radius-sm:8px;
+
+  /* Elevation (used only on the sticky header, menu panels, and the mobile menu) */
+  --shadow-menu:0 12px 28px rgba(18,41,74,.13);
+  --header-bg:rgba(255,255,255,.78);
+
+  /* Motion */
+  --ease:ease;
+  --duration-fast:.18s;
+  --duration:.25s;
+
+  /* Stacking */
+  --z-header:40;
+  --z-skip:100;
+}
+@media(max-width:760px){
+  :root{--gutter:24px;--section-y:48px;--section-y-lg:52px;}
+}

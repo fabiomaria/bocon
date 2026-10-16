@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For OEMs | Custom Sensor Development, Qualification &amp; Supply | Bocon</title><meta name="description" content="Custom Pt100, Pt500, and Pt1000 temperature sensor development for meter, HVAC, and machinery OEMs. Mechanical adaptation, sample qualification, and batch production.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><meta name="theme-color" content="#12294A">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Bocon"><meta property="og:title" content="For OEMs | Custom Sensor Development, Qualification &amp; Supply | Bocon"><meta property="og:description" content="Custom RTD sensor development, sample qualification, and series supply for OEMs."><meta property="og:image" content="assets/og-image.png">
+<link rel="stylesheet" href="assets/tokens.css"><link rel="stylesheet" href="assets/site.css">
+</head><body><a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Bocon home"><img src="logo/bocon-wordmark.png" width="272" height="92" alt="Bocon"/></a>
+      <nav class="menu" id="main-menu" aria-label="Main navigation">
+        <ul class="menu-list">
+          <li><details class="menu-item" name="main-menu"><summary>Products</summary><ul class="menu-panel">
+              <li><a href="products/heat-meter-sensors.html">Heat Meter Sensor Pairs</a></li>
+              <li><a href="tm1101.html">TM1101 Wire-Type RTD</a></li>
+              <li><a href="tm1111.html">TM1111 Pipe-Mount RTD</a></li>
+              <li><a href="tm1401.html">TM1401 Junction Box RTD</a></li>
+              <li><a href="tm1705.html">TM1705 HVAC Duct RTD</a></li>
+              <li><a href="contact.html?intent=application">Other models on request</a></li>
+          </ul></details></li>
+          <li><details class="menu-item" name="main-menu"><summary>Applications</summary><ul class="menu-panel">
+              <li><a href="heat-metering.html">Heat Metering</a></li>
+              <li><a href="hvac-refrigeration.html">HVAC &amp; Refrigeration</a></li>
+          </ul></details></li>
+          <li><a href="for-oems.html" aria-current="page">For OEMs</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta"><a class="btn primary" href="contact.html">Contact</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu</button></div>
+    </div>
+  </header><main id="main">
+<nav class="wrap breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">For OEMs</span></nav>
+
+<section class="wrap hero application-hero">
+  <div>
+    <span class="eyebrow">For Equipment Manufacturers</span>
+    <h1>Custom RTD development, sample qualification, and batch supply</h1>
+    <p class="lead">OEM manifolds, valve bodies, and compact controllers rarely match off-the-shelf probe lengths or standard cable harnesses. We adapt our TM series designs or build custom Pt100, Pt500, and Pt1000 assemblies to your mechanical drawing, supply calibrated evaluation samples, and manufacture repeat production batches.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="contact.html?intent=sample&amp;application=oem">Request OEM samples →</a>
+      <a class="btn ghost" href="#custom-development">Configurable parameters ↓</a>
+    </div>
+  </div>
+  <figure class="application-visual">
+    <svg viewBox="0 0 500 300" role="img" aria-labelledby="oem-title oem-desc">
+      <title id="oem-title">Configurable mechanical and electrical zones on a Bocon OEM RTD probe</title>
+      <desc id="oem-desc">Engineering schematic showing customizable lead termination, cable jacket, process thread, sheath length, and stepped sensing tip.</desc>
+      <text x="24" y="42" fill="#2e5a8f" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">1 · Lead &amp; Connector</text>
+      <text x="195" y="42" fill="#2e5a8f" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">2 · Process Thread</text>
+      <text x="345" y="42" fill="#2e5a8f" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">3 · Sheath &amp; Tip</text>
+
+      <!-- Lead wires -->
+      <path d="M24 122 L60 108" stroke="#dc2626" stroke-width="2.5"/>
+      <path d="M24 130 L60 130" stroke="#475569" stroke-width="2.5"/>
+      <path d="M24 138 L60 152" stroke="#475569" stroke-width="2.5"/>
+      <rect x="60" y="124" width="90" height="12" rx="3" fill="#4677ae"/>
+      <!-- Crimp sleeve -->
+      <rect x="150" y="120" width="32" height="20" rx="3" fill="#728daa" stroke="#12294a" stroke-width="1.5"/>
+      <!-- Hex & Thread -->
+      <rect x="182" y="106" width="32" height="48" rx="3" fill="#fff" stroke="#12294a" stroke-width="2"/>
+      <rect x="214" y="114" width="32" height="32" fill="#eaf1fb" stroke="#12294a" stroke-width="1.8"/>
+      <line x1="222" y1="114" x2="222" y2="146" stroke="#12294a" stroke-width="1.2"/>
+      <line x1="230" y1="114" x2="230" y2="146" stroke="#12294a" stroke-width="1.2"/>
+      <line x1="238" y1="114" x2="238" y2="146" stroke="#12294a" stroke-width="1.2"/>
+      <!-- Tube + Stepped Tip -->
+      <rect x="246" y="120" width="140" height="20" fill="#fff" stroke="#12294a" stroke-width="2"/>
+      <path d="M386 120 L402 124 L402 136 L386 140 Z" fill="#eaf1fb" stroke="#12294a" stroke-width="1.8"/>
+      <rect x="402" y="124" width="70" height="12" rx="6" fill="#fff" stroke="#12294a" stroke-width="2"/>
+      <rect x="444" y="127" width="18" height="6" rx="1" fill="#2563eb"/>
+
+      <!-- Dimension line L -->
+      <line x1="246" y1="176" x2="472" y2="176" stroke="#12294a" stroke-width="1.4"/>
+      <line x1="246" y1="170" x2="246" y2="182" stroke="#12294a" stroke-width="1.4"/>
+      <line x1="472" y1="170" x2="472" y2="182" stroke="#12294a" stroke-width="1.4"/>
+      <text x="359" y="196" text-anchor="middle" fill="#12294a" font-family="Helvetica Neue,Arial,sans-serif" font-size="12" font-weight="600">Insertion Length L (20–2000 mm)</text>
+
+      <text x="24" y="246" fill="#5a6b7b" font-family="Helvetica Neue,Arial,sans-serif" font-size="12">PVC · Silicone · PTFE · PU · Fibreglass</text>
+      <text x="275" y="246" fill="#5a6b7b" font-family="Helvetica Neue,Arial,sans-serif" font-size="12">M10×1 · G1/2 · G1/4 · Flange · Clamp</text>
+    </svg>
+    <figcaption>Configurable zones on custom OEM probe assemblies: lead termination, process thread, sheath diameter/length, and reduced sensing tip.</figcaption>
+  </figure>
+</section>
+
+<!-- Section 1: Custom Sensor Development -->
+<section class="wrap section-space" id="custom-development" aria-labelledby="custom-title">
+  <div class="section-head">
+    <h2 id="custom-title">1. Custom sensor development</h2>
+    <a class="text-link" href="contact.html?intent=application&amp;application=oem">Send a drawing or specification →</a>
+  </div>
+  <p class="shared-line"><b>Base catalogue platforms:</b> Wire &amp; Probe (TM1100–TM1130) · Surface &amp; Pipe (TM1108–TM1113) · Connector (TM1201–TM1204) · Terminal Head (TM1401–TM1505) · Hygienic, HVAC &amp; Ex (TM1601, TM1705, TM1802/1803)</p>
+  <div class="table-scroll" tabindex="0" role="region" aria-labelledby="custom-title">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th scope="col">Assembly Zone</th>
+          <th scope="col">Configurable Options</th>
+          <th scope="col">Engineering Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Platinum Element &amp; Pairing</th>
+          <td>Pt100, Pt500, Pt1000 (IEC 60751, α = 0.00385 °C⁻¹)<br>Class AA, Class A, Class B</td>
+          <td>Single or dual elements; matched flow/return pairs calibrated to EN 1434-2015 and GB/T 32224-2020 (±0.06 °C cooling / ±0.1 °C heating).</td>
+        </tr>
+        <tr>
+          <th scope="row">Circuit &amp; Transmitter Output</th>
+          <td>Single 2-wire, 3-wire, 4-wire<br>Dual 4-wire, 6-wire<br>Integrated 4–20 mA transmitter</td>
+          <td>Direct resistance output or loop-powered 24 V DC 4–20 mA transmitter (tx-2w, tx-3w) mounted inside TM1401 or TM1501 terminal heads.</td>
+        </tr>
+        <tr>
+          <th scope="row">Sheath Material &amp; Geometry</th>
+          <td>SUS304, SUS316L, Copper (TM1111-3)<br>OD Ø2.5 mm to Ø16 mm · L = 20–2000 mm</td>
+          <td>Straight tubes, stepped reduced tips (e.g. Ø5 mm stepped to Ø3.7 × 10 mm for t₀.₅ ≤ 2.0 s), slotted air-duct tips (TM1705), or curved pipe saddles (TM1111).</td>
+        </tr>
+        <tr>
+          <th scope="row">Process Connection</th>
+          <td>M10 × 1, M12 × 1.5, M16 × 1.5, G1/4, G1/2<br>Sliding flange, sanitary clamp, hose clamp</td>
+          <td>Fixed hex nipple, union nut, compression fitting, or matching brass/stainless steel thermowell (PN16 / PN25).</td>
+        </tr>
+        <tr>
+          <th scope="row">Cable Jacket &amp; Termination</th>
+          <td>PVC (-30…+105 °C), PU, Silicone (-50…+200 °C), PTFE (-50…+250 °C), Fibreglass (-50…+350 °C)</td>
+          <td>Cut to custom harness length (500 mm to 10 000 mm) with stripped leads, bootlace ferrules, ring lugs, board connectors, or M12 plugs.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Section 2: Samples & Qualification -->
+<section class="dark-section" id="samples-qualification">
+  <div class="wrap section-space">
+    <div class="checks-layout">
+      <div>
+        <h2>2. Samples, testing, and qualification</h2>
+        <p class="section-intro">Before locking a sensor part number for series production, OEM engineering teams verify mechanical fit, thermal response time, insulation resistance, and calibration stability. We manufacture both the temperature sensors and the liquid/wind-tunnel thermal response test equipment used to verify them.</p>
+      </div>
+      <dl class="checks">
+        <div><dt>Three-point bath calibration &amp; EN 1434 pairing</dt><dd>Heat-meter pairs are bath-tested across reference temperatures to compute individual Callendar–Van Dusen coefficients (R₀, A, B) and verify pairing error within ±0.06 °C (cooling, ΔT<sub>min</sub> 2 K) or ±0.1 °C (heating, ΔT<sub>min</sub> 3 K).</dd></div>
+        <div><dt>In-house thermal response time testing (t₀.₅ / t₀.₉)</dt><dd>We measure step response time in regulated water flow (0.8 m/s or 0.4 m/s per EN 1434 / GB/T 32224) and airflow channels using Bocon’s own thermal response testing apparatus.</dd></div>
+        <div><dt>Insulation resistance &amp; pressure verification</dt><dd>Every production batch is checked for room-temperature insulation resistance (R ≥ 100 MΩ at 100 V DC) and rated enclosure sealing (IP65 or IP68 submersible transition).</dd></div>
+        <div><dt>Quality management &amp; regulatory approvals</dt><dd>Manufactured under ISO 9001, ISO 14001, and ISO 45001 quality systems, with MID approval on designated heat-meter sensor series (TM1101-5-1500 and TM1101/51-5-1500).</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Supply & Technical Support -->
+<section class="soft-section" id="supply-support">
+  <div class="wrap section-space">
+    <div class="two-col">
+      <div>
+        <div class="kick">Series Production</div>
+        <h2>3. Supply and technical support</h2>
+        <ol class="requirements">
+          <li><b>Locked drawing and part code</b><p>Once your engineering team approves the prototype samples, we assign a dedicated part code and lock the bill of materials, cable specification, and calibration fixture settings for repeat orders.</p></li>
+          <li><b>Serialised pair tagging</b><p>Matched heat-meter pairs are marked with matching serial numbers and flow/return colour bands so assembly-line technicians never mix sensors from different calibration bins.</p></li>
+          <li><b>Direct engineering contact</b><p>Specification reviews, tolerance questions, and drawing revisions are handled directly by our sensor engineering team.</p></li>
+          <li><b>Line-ready export packaging</b><p>Probes are packed in partitioned trays or paired bags tailored to your incoming inspection and meter assembly workflow.</p></li>
+        </ol>
+      </div>
+      <div class="stack">
+        <div class="info-card">
+          <h3>What to include when requesting OEM samples</h3>
+          <ul>
+            <li>Target temperature range and medium (water, air, glycol, oil)</li>
+            <li>Sensing element (Pt100, Pt500, Pt1000), tolerance class, and wiring (2W, 3W, 4W, dual, or matched pair)</li>
+            <li>Sheath outer diameter, insertion length, and process thread or drawing</li>
+            <li>Cable insulation material, lead length, and termination style</li>
+            <li>Sample quantity for qualification and estimated annual batch volume</li>
+          </ul>
+        </div>
+        <a class="download-card" href="documents/bocon-heat-meter-sensors-en.pdf" download>
+          <span class="file-icon" aria-hidden="true">PDF</span>
+          <span><b>Heat Meter Temperature Sensors Brochure</b><small>Company profile, certifications &amp; sensor data · PDF, 2.2 MB</small></span>
+          <span class="download-arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section-space">
+  <div class="cta">
+    <div><h2>Discuss a custom sensor or request prototype samples</h2><p>Send us your specification or drawing to start sample qualification.</p></div>
+    <a class="btn primary" href="contact.html?intent=sample&amp;application=oem">Send an enquiry →</a>
+  </div>
+</section>
+</main><footer><div class="wrap"><div class="foot">
+<div><a href="index.html" class="footer-brand">BOCON</a><p>Dalian Bocon Science &amp; Technology Co., Ltd. designs and manufactures Pt100, Pt500, and Pt1000 temperature sensors for OEMs and industry.</p></div>
+<div><h4>Products</h4><a href="products/heat-meter-sensors.html">Heat meter sensor pairs</a><a href="tm1101.html">TM1101 wire-type RTD</a><a href="tm1111.html">TM1111 pipe-mount RTD</a><a href="tm1401.html">TM1401 junction box RTD</a><a href="tm1705.html">TM1705 HVAC duct RTD</a></div>
+<div><h4>Applications &amp; OEM</h4><a href="heat-metering.html">Heat metering</a><a href="hvac-refrigeration.html">HVAC &amp; refrigeration</a><a href="for-oems.html">For OEMs</a><a href="contact.html">Contact</a></div>
+<div><h4>Documents</h4><a href="documents/bocon-heat-meter-sensors-en.pdf">Heat meter brochure (PDF) ↗</a><a href="contact.html?intent=documents">Request certificates</a></div>
+</div><div class="foot-bar"><span>© 2026 Dalian Bocon Science &amp; Technology Co., Ltd.</span><span class="legal-links"><a href="impressum.html">Legal notice</a><a href="privacy.html">Privacy</a></span></div></div></footer><script src="assets/site.js" defer></script></body></html>
