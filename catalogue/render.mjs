@@ -44,6 +44,9 @@ const UI = {
     skip: 'Skip to content',
     home: 'Home',
     products: 'Products',
+    heatMetering: 'Heat Metering',
+    hvac: 'HVAC & Refrigeration',
+    forOems: 'For OEMs',
     contact: 'Contact',
     navLabel: 'Main navigation',
     breadcrumbLabel: 'Breadcrumb',
@@ -204,7 +207,10 @@ const UI = {
     footerSummary:
       'Dalian Bocon Science & Technology Co., Ltd. designs and manufactures platinum temperature sensors, elements, and test equipment for OEMs and industry.',
     footerProducts: 'Products',
-    footerContact: 'Enquiries',
+    footerAllProducts: 'All products',
+    footerApplications: 'Applications & OEM',
+    footerContact: 'Enquiries & Documents',
+    footerRequestDocs: 'Request documentation',
     footerLegalNotice: 'Legal notice',
     footerPrivacy: 'Privacy',
     copyright: '© 2026 Dalian Bocon Science & Technology Co., Ltd.',
@@ -213,6 +219,9 @@ const UI = {
     skip: 'Zum Inhalt springen',
     home: 'Startseite',
     products: 'Produkte',
+    heatMetering: 'Wärmezähler',
+    hvac: 'HLK & Kälte',
+    forOems: 'Für OEMs',
     contact: 'Kontakt',
     navLabel: 'Hauptnavigation',
     breadcrumbLabel: 'Brotkrumennavigation',
@@ -373,7 +382,10 @@ const UI = {
     footerSummary:
       'Dalian Bocon Science & Technology Co., Ltd. entwickelt und fertigt Platin-Temperaturfühler, Messelemente und Prüfgeräte für OEMs und Industrie.',
     footerProducts: 'Produkte',
-    footerContact: 'Anfragen',
+    footerAllProducts: 'Alle Produkte',
+    footerApplications: 'Anwendungen & OEM',
+    footerContact: 'Anfragen & Dokumente',
+    footerRequestDocs: 'Dokumente anfragen',
     footerLegalNotice: 'Impressum',
     footerPrivacy: 'Datenschutz',
     copyright: '© 2026 Dalian Bocon Science & Technology Co., Ltd.',
@@ -476,7 +488,7 @@ function renderLanguageSwitcher(locale, route) {
   return `<nav class="lang-switch" aria-label="${escapeHtml(ui.langSwitchLabel)}">${items.join('<span aria-hidden="true"> / </span>')}</nav>`;
 }
 
-function renderShell({
+export function renderShell({
   locale,
   seoTitle,
   seoDescription,
@@ -497,12 +509,18 @@ function renderShell({
   const hreflangTags = renderHreflangLinks(route);
   const hreflangBlock = hreflangTags ? `\n${hreflangTags}` : '';
 
-  const homeHref = routes.resolvePage('/index.html');
+  const homeHref = routes.resolvePage(`/${locale}/index.html`);
   const productsHref = routes.resolvePage(`/${locale}/products/index.html`);
+  const heatMeteringHref = routes.resolvePage(`/${locale}/heat-metering.html`);
+  const hvacHref = routes.resolvePage(`/${locale}/hvac-refrigeration.html`);
+  const forOemsHref = routes.resolvePage(`/${locale}/for-oems.html`);
   const contactHref = routes.enquiryUrl(locale, { intent: 'general' });
+  const docsHref = routes.enquiryUrl(locale, { intent: 'documents' });
+  const impressumHref = routes.resolvePage(`/${locale}/impressum.html`);
+  const privacyHref = routes.resolvePage(`/${locale}/privacy.html`);
+
   const fullBodyClass = bodyClass ? `catalogue-page ${bodyClass}` : 'catalogue-page';
-  const productsCurrent = activeNav === 'products' ? ' aria-current="true"' : '';
-  const contactCurrent = activeNav === 'contact' ? ' aria-current="true"' : '';
+  const navCurrent = (key) => (activeNav === key ? ' aria-current="page"' : '');
 
   return `<!doctype html>
 <html lang="${escapeHtml(locale)}">
@@ -511,6 +529,7 @@ function renderShell({
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(fullTitle)}</title>
   <meta name="description" content="${escapeHtml(seoDescription)}">${robotsMeta}${canonicalTag}${hreflangBlock}
+  <link rel="icon" href="${escapeHtml(routes.resolveAsset('v2/assets/favicon.svg'))}" type="image/svg+xml">
   <meta name="theme-color" content="#12294A">
   <link rel="stylesheet" href="${escapeHtml(routes.resolveAsset('v2/assets/tokens.css'))}">
   <link rel="stylesheet" href="${escapeHtml(routes.resolveAsset('v2/assets/site.css'))}">
@@ -523,13 +542,16 @@ function renderShell({
       <a class="brand" href="${escapeHtml(homeHref)}" aria-label="Bocon ${escapeHtml(ui.home)}"><img src="${escapeHtml(routes.resolveAsset('v2/logo/bocon-wordmark.png'))}" width="272" height="92" alt="Bocon"></a>
       <nav class="menu" id="main-menu" aria-label="${escapeHtml(ui.navLabel)}">
         <ul class="menu-list">
-          <li><a href="${escapeHtml(productsHref)}"${productsCurrent}>${escapeHtml(ui.products)}</a></li>
-          <li><a href="${escapeHtml(contactHref)}"${contactCurrent}>${escapeHtml(ui.contact)}</a></li>
+          <li><a href="${escapeHtml(homeHref)}"${navCurrent('home')}>${escapeHtml(ui.home)}</a></li>
+          <li><a href="${escapeHtml(productsHref)}"${navCurrent('products')}>${escapeHtml(ui.products)}</a></li>
+          <li><a href="${escapeHtml(heatMeteringHref)}"${navCurrent('heat-metering')}>${escapeHtml(ui.heatMetering)}</a></li>
+          <li><a href="${escapeHtml(hvacHref)}"${navCurrent('hvac-refrigeration')}>${escapeHtml(ui.hvac)}</a></li>
+          <li><a href="${escapeHtml(forOemsHref)}"${navCurrent('for-oems')}>${escapeHtml(ui.forOems)}</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
         ${renderLanguageSwitcher(locale, route)}
-        <a class="btn primary" href="${escapeHtml(contactHref)}">${escapeHtml(ui.contact)}</a>
+        <a class="btn primary" href="${escapeHtml(contactHref)}"${navCurrent('contact')}>${escapeHtml(ui.contact)}</a>
       </div>
     </div>
   </header>
@@ -545,18 +567,26 @@ ${mainHtml}
         </div>
         <div>
           <h4>${escapeHtml(ui.footerProducts)}</h4>
-          <a href="${escapeHtml(productsHref)}">${escapeHtml(ui.products)}</a>
+          <a href="${escapeHtml(productsHref)}">${escapeHtml(ui.footerAllProducts)}</a>
+          <a href="${escapeHtml(heatMeteringHref)}">${escapeHtml(ui.heatMetering)}</a>
+          <a href="${escapeHtml(hvacHref)}">${escapeHtml(ui.hvac)}</a>
+        </div>
+        <div>
+          <h4>${escapeHtml(ui.footerApplications)}</h4>
+          <a href="${escapeHtml(forOemsHref)}">${escapeHtml(ui.forOems)}</a>
+          <a href="${escapeHtml(homeHref)}">${escapeHtml(ui.home)}</a>
         </div>
         <div>
           <h4>${escapeHtml(ui.footerContact)}</h4>
           <a href="${escapeHtml(contactHref)}">${escapeHtml(ui.sendEnquiry)}</a>
+          <a href="${escapeHtml(docsHref)}">${escapeHtml(ui.footerRequestDocs)}</a>
         </div>
       </div>
       <div class="foot-bar">
         <span>${escapeHtml(ui.copyright)}</span>
         <span class="legal-links">
-          <a href="${escapeHtml(routes.resolvePage('/v2/impressum.html'))}">${escapeHtml(ui.footerLegalNotice)}</a>
-          <a href="${escapeHtml(routes.resolvePage('/v2/privacy.html'))}">${escapeHtml(ui.footerPrivacy)}</a>
+          <a href="${escapeHtml(impressumHref)}">${escapeHtml(ui.footerLegalNotice)}</a>
+          <a href="${escapeHtml(privacyHref)}">${escapeHtml(ui.footerPrivacy)}</a>
         </span>
       </div>
     </div>
@@ -804,7 +834,7 @@ export function renderProduct(
     : `<span>${escapeHtml(ui.products)}</span>`;
 
   const breadcrumbsHtml = `    <nav class="wrap breadcrumbs" aria-label="${escapeHtml(ui.breadcrumbLabel)}">
-      <a href="${escapeHtml(routes.resolvePage('/index.html'))}">${escapeHtml(ui.home)}</a>
+      <a href="${escapeHtml(routes.resolvePage(`/${locale}/index.html`))}">${escapeHtml(ui.home)}</a>
       <span aria-hidden="true">/</span>
       ${catCrumb}
       <span aria-hidden="true">/</span>
@@ -992,7 +1022,7 @@ export function renderCategory(
     .filter((p) => p && p.locales?.[locale] && routes?.products?.[p.id]?.[locale]);
 
   const breadcrumbsHtml = `    <nav class="wrap breadcrumbs" aria-label="${escapeHtml(ui.breadcrumbLabel)}">
-      <a href="${escapeHtml(routes.resolvePage('/index.html'))}">${escapeHtml(ui.home)}</a>
+      <a href="${escapeHtml(routes.resolvePage(`/${locale}/index.html`))}">${escapeHtml(ui.home)}</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">${escapeHtml(loc.title)}</span>
     </nav>`;
@@ -1092,7 +1122,7 @@ export function renderCategory(
   });
 }
 
-function makeStaticRoute(locale, relPath, routes) {
+export function makeStaticRoute(locale, relPath, routes) {
   const otherLocale = locale === 'en' ? 'de' : 'en';
   const otherRelPath = relPath.replace(`/${locale}/`, `/${otherLocale}/`);
   const href = routes.resolvePage(relPath);
@@ -1128,7 +1158,7 @@ export function renderCatalogueHub(publicInput, locale, { routes, noindex = fals
   const productById = new Map(products.map((p) => [p.id, p]));
 
   const breadcrumbsHtml = `    <nav class="wrap breadcrumbs" aria-label="${escapeHtml(ui.breadcrumbLabel)}">
-      <a href="${escapeHtml(routes.resolvePage('/index.html'))}">${escapeHtml(ui.home)}</a>
+      <a href="${escapeHtml(routes.resolvePage(`/${locale}/index.html`))}">${escapeHtml(ui.home)}</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">${escapeHtml(ui.products)}</span>
     </nav>`;
@@ -1268,7 +1298,7 @@ export function renderEnquiryPage(publicInput, locale, { routes, noindex = false
   };
 
   const breadcrumbsHtml = `    <nav class="wrap breadcrumbs" aria-label="${escapeHtml(ui.breadcrumbLabel)}">
-      <a href="${escapeHtml(routes.resolvePage('/index.html'))}">${escapeHtml(ui.home)}</a>
+      <a href="${escapeHtml(routes.resolvePage(`/${locale}/index.html`))}">${escapeHtml(ui.home)}</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">${escapeHtml(ui.contact)}</span>
     </nav>`;

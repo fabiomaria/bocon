@@ -568,3 +568,161 @@ test('CLI invocation builds static output with --source --out --origin --base-pa
     await fs.rm(outDir, { recursive: true, force: true });
   }
 });
+
+test('buildCatalogue generates complete bilingual EN/DE core pages with cohesive nav, reciprocal switchers, and dynamic categories', async () => {
+  const sourceDir = await makeTempDir('bocon-src-core-');
+  const outDir = await makeTempDir('bocon-out-core-');
+
+  try {
+    await writeSourceFixture(sourceDir, validCatalogue());
+
+    const result = await buildCatalogue({
+      sourceDir,
+      outDir,
+      origin: 'https://fabiomaria.github.io',
+      basePath: '/bocon/preview',
+      noindex: true,
+    });
+
+    const expectedCoreFiles = [
+      'index.html',
+      'en/index.html',
+      'de/index.html',
+      'en/heat-metering.html',
+      'de/heat-metering.html',
+      'en/hvac-refrigeration.html',
+      'de/hvac-refrigeration.html',
+      'en/for-oems.html',
+      'de/for-oems.html',
+      'en/privacy.html',
+      'de/privacy.html',
+      'en/impressum.html',
+      'de/impressum.html',
+    ];
+
+    for (const rel of expectedCoreFiles) {
+      assert.ok(result.files.includes(rel), `Expected core page ${rel} in build output`);
+      const html = await fs.readFile(path.join(outDir, rel), 'utf8');
+      assert.ok(
+        html.includes('<meta name="robots" content="noindex, nofollow">'),
+        `Expected noindex meta tag in ${rel}`,
+      );
+    }
+
+    // Root selector links to EN and DE homepages
+    const rootIndex = await fs.readFile(path.join(outDir, 'index.html'), 'utf8');
+    assert.ok(rootIndex.includes('/bocon/preview/en/index.html'));
+    assert.ok(rootIndex.includes('/bocon/preview/de/index.html'));
+
+    // EN and DE homepages pull published categories dynamically and include cohesive nav & reciprocal switchers
+    const enHome = await fs.readFile(path.join(outDir, 'en/index.html'), 'utf8');
+    const deHome = await fs.readFile(path.join(outDir, 'de/index.html'), 'utf8');
+
+    assert.ok(enHome.includes('<html lang="en">'));
+    assert.ok(enHome.includes('Synthetic Temperature Probes'));
+    assert.ok(enHome.includes('/bocon/preview/en/products/categories/synthetic-probes.html'));
+    assert.ok(enHome.includes('href="/bocon/preview/de/index.html"'));
+    assert.ok(enHome.includes('/bocon/preview/en/heat-metering.html'));
+    assert.ok(enHome.includes('/bocon/preview/en/hvac-refrigeration.html'));
+    assert.ok(enHome.includes('/bocon/preview/en/for-oems.html'));
+    assert.ok(enHome.includes('/bocon/preview/en/privacy.html'));
+    assert.ok(enHome.includes('/bocon/preview/en/impressum.html'));
+
+    assert.ok(deHome.includes('<html lang="de">'));
+    assert.ok(deHome.includes('Synthetische Temperaturfuehler'));
+    assert.ok(deHome.includes('/bocon/preview/de/products/categories/synthetische-fuehler.html'));
+    assert.ok(deHome.includes('href="/bocon/preview/en/index.html"'));
+    assert.ok(deHome.includes('/bocon/preview/de/heat-metering.html'));
+    assert.ok(deHome.includes('/bocon/preview/de/hvac-refrigeration.html'));
+    assert.ok(deHome.includes('/bocon/preview/de/for-oems.html'));
+    assert.ok(deHome.includes('/bocon/preview/de/privacy.html'));
+    assert.ok(deHome.includes('/bocon/preview/de/impressum.html'));
+
+    // Qualified BOC-003 wording on heat-metering and for-oems pages
+    const enHeat = await fs.readFile(path.join(outDir, 'en/heat-metering.html'), 'utf8');
+    const deHeat = await fs.readFile(path.join(outDir, 'de/heat-metering.html'), 'utf8');
+    assert.ok(enHeat.includes('Module B'));
+    assert.ok(enHeat.includes('Module D/F'));
+    assert.ok(enHeat.includes('href="/bocon/preview/de/heat-metering.html"'));
+    assert.ok(deHeat.includes('Modul B'));
+    assert.ok(deHeat.includes('Modul D/F'));
+    assert.ok(deHeat.includes('href="/bocon/preview/en/heat-metering.html"'));
+
+    const enOem = await fs.readFile(path.join(outDir, 'en/for-oems.html'), 'utf8');
+    const deOem = await fs.readFile(path.join(outDir, 'de/for-oems.html'), 'utf8');
+    assert.ok(enOem.includes('Nanjing'));
+    assert.ok(enOem.includes('Dalian'));
+    assert.ok(enOem.includes('on request'));
+    assert.ok(deOem.includes('Nanjing'));
+    assert.ok(deOem.includes('Dalian'));
+    assert.ok(deOem.includes('auf Anfrage'));
+
+    // Honest preview privacy & impressum wording
+    const enPrivacy = await fs.readFile(path.join(outDir, 'en/privacy.html'), 'utf8');
+    const dePrivacy = await fs.readFile(path.join(outDir, 'de/privacy.html'), 'utf8');
+    assert.ok(/preview/i.test(enPrivacy));
+    assert.ok(/Vorschau/i.test(dePrivacy));
+
+    const enImpressum = await fs.readFile(path.join(outDir, 'en/impressum.html'), 'utf8');
+    const deImpressum = await fs.readFile(path.join(outDir, 'de/impressum.html'), 'utf8');
+    assert.ok(/European contact/i.test(enImpressum));
+    assert.ok(/europäische/i.test(deImpressum));
+  } finally {
+    await fs.rm(sourceDir, { recursive: true, force: true });
+    await fs.rm(outDir, { recursive: true, force: true });
+  }
+});
+
+test('buildCatalogue contains zero unverified BOC-003 compliance claims across all generated HTML pages', async () => {
+  const sourceDir = await makeTempDir('bocon-src-boc003-');
+  const outDir = await makeTempDir('bocon-out-boc003-');
+
+  try {
+    await writeSourceFixture(sourceDir, validCatalogue());
+
+    await buildCatalogue({
+      sourceDir,
+      outDir,
+      origin: 'https://fabiomaria.github.io',
+      basePath: '/bocon',
+      noindex: false,
+    });
+
+    const allFiles = await readAllFiles(outDir);
+    const htmlFiles = [...allFiles.entries()].filter(([rel]) => rel.endsWith('.html'));
+    assert.ok(htmlFiles.length >= 19, `Expected at least 19 HTML files, got ${htmlFiles.length}`);
+
+    const prohibitedPatterns = [
+      /MID\s+Approved/i,
+      /\bATEX\b/i,
+      /\bIECEx\b/i,
+      /\bGJB\b/i,
+      /Callendar/i,
+      /three-point\s+bath/i,
+      /\bTM1802\b/i,
+      /\bTM1803\b/i,
+      /bocon-heat-meter-sensors-en\.pdf/i,
+    ];
+
+    for (const [rel, buf] of htmlFiles) {
+      const html = buf.toString('utf8');
+      for (const pattern of prohibitedPatterns) {
+        assert.equal(
+          pattern.test(html),
+          false,
+          `Prohibited BOC-003 pattern ${pattern} found in ${rel}`,
+        );
+      }
+    }
+
+    // Sitemap includes indexable core pages when noindex is false
+    const sitemap = await fs.readFile(path.join(outDir, 'sitemap-catalogue.xml'), 'utf8');
+    assert.ok(sitemap.includes('https://fabiomaria.github.io/bocon/en/index.html'));
+    assert.ok(sitemap.includes('https://fabiomaria.github.io/bocon/de/index.html'));
+    assert.ok(sitemap.includes('https://fabiomaria.github.io/bocon/en/heat-metering.html'));
+    assert.ok(sitemap.includes('https://fabiomaria.github.io/bocon/de/for-oems.html'));
+  } finally {
+    await fs.rm(sourceDir, { recursive: true, force: true });
+    await fs.rm(outDir, { recursive: true, force: true });
+  }
+});

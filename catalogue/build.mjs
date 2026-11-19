@@ -24,11 +24,21 @@ import {
   renderCatalogueHub,
   renderEnquiryPage,
 } from './render.mjs';
+import {
+  renderRootLanding,
+  renderHomePage,
+  renderHeatMeteringPage,
+  renderHvacPage,
+  renderForOemsPage,
+  renderPrivacyPage,
+  renderImpressumPage,
+} from './core-pages.mjs';
 
 const THIS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const DEFAULT_REPO_ROOT = path.resolve(THIS_DIR, '..');
 
 const REQUIRED_SHARED_ASSETS = Object.freeze([
+  'v2/assets/favicon.svg',
   'v2/assets/tokens.css',
   'v2/assets/site.css',
   'v2/assets/wiring-diagrams.js',
@@ -253,6 +263,43 @@ export async function buildCatalogue({
   }
 
   const sitemapEntries = [];
+
+  // 0. Root language selector (index.html) and bilingual EN/DE core pages
+  await writeTextFile(resolvedOut, 'index.html', renderRootLanding({ routes, noindex }), writtenFiles);
+
+  const corePageSpecs = [
+    { fileName: 'index.html', render: (loc) => renderHomePage(pub, loc, { routes, noindex }) },
+    {
+      fileName: 'heat-metering.html',
+      render: (loc) => renderHeatMeteringPage(pub, loc, { routes, noindex }),
+    },
+    {
+      fileName: 'hvac-refrigeration.html',
+      render: (loc) => renderHvacPage(pub, loc, { routes, noindex }),
+    },
+    {
+      fileName: 'for-oems.html',
+      render: (loc) => renderForOemsPage(pub, loc, { routes, noindex }),
+    },
+    { fileName: 'privacy.html', render: (loc) => renderPrivacyPage(loc, { routes, noindex }) },
+    { fileName: 'impressum.html', render: (loc) => renderImpressumPage(loc, { routes, noindex }) },
+  ];
+
+  for (const spec of corePageSpecs) {
+    const alternates = {};
+    for (const locale of SUPPORTED_LOCALES) {
+      const href = routes.resolvePage(`/${locale}/${spec.fileName}`);
+      alternates[locale] = routes.origin ? `${routes.origin}${href}` : href;
+    }
+    for (const locale of SUPPORTED_LOCALES) {
+      const html = spec.render(locale);
+      await writeTextFile(resolvedOut, `${locale}/${spec.fileName}`, html, writtenFiles);
+      sitemapEntries.push({
+        loc: alternates[locale],
+        alternates,
+      });
+    }
+  }
 
   // 1. Localized catalogue hubs (en/products/index.html, de/products/index.html)
   const hubAlternates = {};
