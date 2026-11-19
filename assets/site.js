@@ -37,8 +37,7 @@
   form.addEventListener('submit', event => {
     event.preventDefault();
     preview.hidden = false;
-    status.textContent = 'Demo enquiry submitted. Nothing was sent or stored.';
-    form.querySelectorAll('input, select, textarea, button[type="submit"]').forEach(el => { el.disabled = true; });
+    status.textContent = 'Preview only. Nothing was sent or stored. You can continue editing.';
     preview.focus();
   });
 })();

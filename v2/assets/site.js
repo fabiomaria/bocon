@@ -67,8 +67,7 @@
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (preview) preview.hidden = false;
-    if (status) status.textContent = 'Demo enquiry submitted. Nothing was sent or stored.';
-    form.querySelectorAll('input, select, textarea, button[type="submit"]').forEach(el => { el.disabled = true; });
+    if (status) status.textContent = 'Preview only. Nothing was sent or stored. You can continue editing.';
     if (preview) preview.focus();
   });
 })();
