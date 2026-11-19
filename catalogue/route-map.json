@@ -1,0 +1,147 @@
+{
+  "version": "2026-11-19",
+  "basePath": "/bocon",
+  "policy": "Preserve all existing live root and v2/ HTML routes untouched until replacement mappings are reviewed and approved. GitHub Pages does not support general server-side redirect rules; any future cutover will use explicit reviewed static aliases or canonicals.",
+  "routes": [
+    {
+      "existing": "/index.html",
+      "scope": "root",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Live deployed root landing page; preserved untouched."
+    },
+    {
+      "existing": "/contact.html",
+      "scope": "root",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Live root contact page; localized /en/contact.html and /de/contact.html planned in Task 6."
+    },
+    {
+      "existing": "/heat-metering.html",
+      "scope": "root",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Live root application page; preserved untouched."
+    },
+    {
+      "existing": "/tm1101-51.html",
+      "scope": "root",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Live root product page; map to reviewed generated EN product route only after Task 5/8 approval."
+    },
+    {
+      "existing": "/grid.html",
+      "scope": "root",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Existing root reference grid; preserved untouched."
+    },
+    {
+      "existing": "/v2/index.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 homepage; preserved untouched."
+    },
+    {
+      "existing": "/v2/products.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 products overview; preserved until localized catalogue navigation is reviewed."
+    },
+    {
+      "existing": "/v2/products/heat-meter-sensors.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 heat-meter category page; map to reviewed generated category route after approval."
+    },
+    {
+      "existing": "/v2/tm1101-51.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 reference sensor page; preserved untouched."
+    },
+    {
+      "existing": "/v2/tm1101.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 industrial TM1101 page; distinct from heat-meter TM1101 family."
+    },
+    {
+      "existing": "/v2/tm1111.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 TM1111 pipe-mount page; preserved untouched."
+    },
+    {
+      "existing": "/v2/tm1401.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 TM1401 junction-box page; preserved untouched."
+    },
+    {
+      "existing": "/v2/tm1705.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 TM1705 HVAC duct page; preserved untouched."
+    },
+    {
+      "existing": "/v2/heat-metering.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 heat-metering application page; preserved untouched."
+    },
+    {
+      "existing": "/v2/hvac-refrigeration.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 HVAC & refrigeration application page; preserved untouched."
+    },
+    {
+      "existing": "/v2/for-oems.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 OEM overview page; preserved untouched."
+    },
+    {
+      "existing": "/v2/contact.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Signal v2 contact page; preserved untouched."
+    },
+    {
+      "existing": "/v2/impressum.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Legal notice page; preserved untouched."
+    },
+    {
+      "existing": "/v2/privacy.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "Privacy notice page; preserved untouched."
+    },
+    {
+      "existing": "/v2/404.html",
+      "scope": "v2",
+      "status": "preserved",
+      "replacement": null,
+      "notes": "404 fallback page; preserved untouched."
+    }
+  ]
+}

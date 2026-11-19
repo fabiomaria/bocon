@@ -1,0 +1,233 @@
+/* Narrowly scoped responsive styles for Bocon generated catalogue pages.
+   Requires v2/assets/tokens.css and v2/assets/site.css.
+   Uses existing Signal custom properties without introducing a new visual system. */
+
+/* Language switcher in header */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1, 4px);
+  font-size: var(--text-small, 13px);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--color-slate, #5A6B7B);
+  white-space: nowrap;
+}
+
+.lang-switch .lang-current {
+  color: var(--color-ink, #0F1B2D);
+  font-weight: var(--weight-bold, 700);
+}
+
+.lang-switch .lang-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min, 44px);
+  padding-inline: var(--space-1, 4px);
+  color: var(--color-accent, #2563EB);
+}
+
+.lang-switch .lang-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lang-switch .lang-unavailable {
+  color: var(--color-line-strong, #BDC9D7);
+  cursor: not-allowed;
+  padding-inline: var(--space-1, 4px);
+}
+
+/* Long German compound terms and model code wrapping */
+.sensor-family-page h1,
+.sensor-family-page h2,
+.category-page h1,
+.category-page h2,
+.spec-table th,
+.spec-table td,
+.compare-table th,
+.compare-table td,
+.product-card h3 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Labelled individual variant enquiry links */
+.variant-enquiries {
+  margin-top: var(--space-6, 24px);
+  padding-top: var(--space-4, 16px);
+  border-top: 1px solid var(--color-line, #E4EAF1);
+}
+
+.variant-enquiries-label {
+  margin: 0 0 var(--space-2, 8px);
+  font-size: var(--text-caption, 12px);
+  font-weight: var(--weight-semibold, 600);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-slate, #5A6B7B);
+}
+
+.variant-enquiry-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2, 8px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.variant-enquiry-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min, 44px);
+  padding: var(--space-2, 8px) var(--space-3, 12px);
+  font-size: var(--text-small, 13px);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--color-steel, #2E5A8F);
+  background: var(--color-surface-sky, #EAF1FB);
+  border: 1px solid var(--color-line-sky, #D6E4F6);
+  border-radius: var(--radius-sm, 8px);
+  transition: border-color var(--duration-fast, .18s) var(--ease, ease),
+    color var(--duration-fast, .18s) var(--ease, ease);
+}
+
+.variant-enquiry-link:hover {
+  border-color: var(--color-accent, #2563EB);
+  color: var(--color-accent, #2563EB);
+}
+
+/* Empty gallery state */
+.product-stage-empty {
+  min-height: 180px;
+  text-align: center;
+  color: var(--color-slate, #5A6B7B);
+  font-size: var(--text-body-sm, 14px);
+}
+
+/* Single-column spec layout when no wiring presets are verified */
+.spec-layout-single {
+  grid-template-columns: 1fr;
+}
+
+/* Horizontal scroll wrapper for mobile spec tables */
+.spec-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.spec-fact + .spec-fact {
+  margin-top: var(--space-2, 8px);
+  padding-top: var(--space-2, 8px);
+  border-top: 1px dashed var(--color-line, #E4EAF1);
+}
+
+.spec-unknown {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: var(--text-caption, 12px);
+  font-weight: var(--weight-semibold, 600);
+  color: var(--color-slate, #5A6B7B);
+  background: var(--color-surface-soft, #F4F7FB);
+  border: 1px solid var(--color-line, #E4EAF1);
+  border-radius: var(--radius-pill, 999px);
+}
+
+.spec-condition {
+  display: block;
+  margin-top: var(--space-1, 4px);
+  color: var(--color-slate, #5A6B7B);
+  font-size: var(--text-caption, 12px);
+}
+
+/* Wiring variant summary list */
+.wiring-variant-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2, 8px);
+  font-size: var(--text-body-sm, 14px);
+}
+
+/* Resources & request-only cards */
+.resource-cards {
+  display: grid;
+  gap: var(--space-4, 16px);
+}
+
+.download-card-request {
+  align-items: flex-start;
+  background: var(--color-bg, #FFFFFF);
+  border-style: dashed;
+}
+
+.download-card-request:hover {
+  border-color: var(--color-line-hover, #B9C8DB);
+}
+
+.download-card-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.download-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2, 8px);
+}
+
+.tag-request {
+  color: var(--color-navy, #12294A);
+  background: var(--color-surface-soft, #F4F7FB);
+  border-color: var(--color-line-strong, #BDC9D7);
+}
+
+.certificate-scope {
+  margin-top: var(--space-2, 8px);
+  font-size: var(--text-caption, 12px);
+  color: var(--color-slate, #5A6B7B);
+  line-height: 1.5;
+}
+
+/* Category hero spacing */
+.category-hero {
+  padding-bottom: var(--space-4, 16px);
+}
+
+.category-hero h1 {
+  font-size: var(--text-h1-compact, clamp(34px, 4vw, 49px));
+}
+
+/* Explicit high-contrast keyboard focus */
+.variant-enquiry-link:focus-visible,
+.lang-switch .lang-link:focus-visible,
+.download-card:focus-visible,
+.product-card:focus-visible,
+.text-link:focus-visible {
+  outline: 2px solid var(--color-accent, #2563EB);
+  outline-offset: 3px;
+}
+
+/* Responsive adjustments for 768px and 375px viewports */
+@media (max-width: 768px) {
+  .spec-table {
+    min-width: 460px;
+  }
+}
+
+@media (max-width: 480px) {
+  .variant-enquiry-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .variant-enquiry-link {
+    justify-content: space-between;
+  }
+
+  .download-card {
+    flex-wrap: wrap;
+  }
+}
