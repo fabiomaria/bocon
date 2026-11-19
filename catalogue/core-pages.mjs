@@ -1454,7 +1454,7 @@ export function renderImpressumPage(locale, { routes, noindex = false } = {}) {
             },
             {
               h2: 'Kontakt (Hersteller)',
-              p: 'Tel: +86-411-88122286 · E-Mail: export@bocontech.com / beitoo@bocontech.com',
+              p: 'E-Mail: export@bocontech.com / beitoo@bocontech.com',
             },
             {
               h2: 'Hinweis zu technischen Angaben',
@@ -1479,7 +1479,7 @@ export function renderImpressumPage(locale, { routes, noindex = false } = {}) {
             },
             {
               h2: 'Manufacturer contact',
-              p: 'Tel: +86-411-88122286 · Email: export@bocontech.com / beitoo@bocontech.com',
+              p: 'Email: export@bocontech.com / beitoo@bocontech.com',
             },
             {
               h2: 'Technical specifications notice',

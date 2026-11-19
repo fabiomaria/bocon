@@ -1392,7 +1392,7 @@ export function renderEnquiryPage(publicInput, locale, { routes, noindex = false
         <div class="info-card">
           <h3>Dalian Bocon Science &amp; Technology Co., Ltd.</h3>
           <p>9-1, No. 23, Shidai-E Rd, Dalian Bonded Area, Dalian, China</p>
-          <p>Email: <a class="text-link" href="mailto:beitoo@bocontech.com">beitoo@bocontech.com</a> · <a class="text-link" href="mailto:export@bocontech.com">export@bocontech.com</a><br>Tel: <a href="tel:+8641188122286">+86-411-88122286</a></p>
+          <p>Email: <a class="text-link" href="mailto:beitoo@bocontech.com">beitoo@bocontech.com</a> · <a class="text-link" href="mailto:export@bocontech.com">export@bocontech.com</a></p>
         </div>
         <div class="info-card">
           <h3>${escapeHtml(ui.infoIncludeHeading)}</h3>
