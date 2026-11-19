@@ -210,6 +210,111 @@
   outline-offset: 3px;
 }
 
+/* Keep compact catalogue header nav usable at <= 1100px (no collapsible menu-toggle) */
+@media (max-width: 1100px) {
+  .catalogue-page header .menu {
+    display: block;
+    position: static;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .catalogue-page .menu-list {
+    flex-direction: row;
+    gap: var(--space-4, 16px);
+  }
+
+  .catalogue-page .nav {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--header-h, 74px);
+    padding-block: var(--space-2, 8px);
+  }
+}
+
+/* Catalogue hub category readiness states */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6, 24px);
+  margin-top: var(--space-6, 24px);
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 12px);
+  padding: var(--space-6, 24px);
+  background: var(--color-bg, #FFFFFF);
+  border: 1px solid var(--color-line, #E4EAF1);
+  border-radius: var(--radius, 12px);
+  transition: border-color var(--duration-fast, .18s) var(--ease, ease),
+    box-shadow var(--duration-fast, .18s) var(--ease, ease);
+}
+
+a.hub-card:hover {
+  border-color: var(--color-accent, #2563EB);
+  box-shadow: var(--shadow-menu);
+}
+
+.hub-card h2,
+.hub-card h3 {
+  margin: 0;
+  font-size: var(--text-h3, 20px);
+}
+
+.hub-card p {
+  margin: 0;
+  color: var(--color-slate, #5A6B7B);
+  font-size: var(--text-body-sm, 14px);
+}
+
+.hub-card-meta {
+  margin-top: auto;
+  padding-top: var(--space-3, 12px);
+  border-top: 1px solid var(--color-line, #E4EAF1);
+  font-size: var(--text-caption, 12px);
+  color: var(--color-steel, #2E5A8F);
+  font-weight: var(--weight-semibold, 600);
+}
+
+.hub-card-pending {
+  background: var(--color-surface-soft, #F4F7FB);
+  border-style: dashed;
+}
+
+/* Truthful preview banner above enquiry form */
+.preview-banner {
+  margin: 0 0 var(--space-5, 20px);
+  padding: var(--space-4, 16px) var(--space-5, 20px);
+  background: var(--color-surface-sky, #EAF1FB);
+  border: 1px solid var(--color-line-sky, #D6E4F6);
+  border-left: 4px solid var(--color-navy, #12294A);
+  border-radius: var(--radius-sm, 8px);
+  color: var(--color-navy, #12294A);
+  font-size: var(--text-body-sm, 14px);
+  line-height: 1.5;
+}
+
+.preview-banner strong {
+  display: block;
+  margin-bottom: var(--space-1, 4px);
+}
+
+.enquiry-context-note {
+  margin: 0 0 var(--space-4, 16px);
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  background: var(--color-bg, #FFFFFF);
+  border: 1px solid var(--color-line, #E4EAF1);
+  border-radius: var(--radius-sm, 8px);
+  font-size: var(--text-small, 13px);
+  color: var(--color-steel, #2E5A8F);
+}
+
 /* Responsive adjustments for 768px and 375px viewports */
 @media (max-width: 768px) {
   .spec-table {

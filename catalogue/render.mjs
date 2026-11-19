@@ -144,6 +144,63 @@ const UI = {
     },
     viewProduct: 'View specifications',
     emptyCategory: 'No reviewed products are currently published in this category for English.',
+    hubEyebrow: 'Product Catalogue',
+    hubTitle: 'Temperature Sensors, Elements & Test Equipment',
+    hubIntro:
+      'Explore verified Bocon sensor categories, thin-film platinum elements, and response-time testing equipment. Categories without reviewed product records are noted honestly below.',
+    hubProductCount: (n) => (n === 1 ? '1 published product' : `${n} published products`),
+    hubCategoryPending: 'Source verification in progress — no published products in English yet.',
+    hubEmptyCatalogue: 'No reviewed categories or products are currently published for English.',
+    hubClosingHeading: 'Looking for a specific model or custom OEM sensor?',
+    hubClosingBody:
+      'Send your model code, temperature range, geometry, or drawing for an engineering review or quote.',
+    contactTitle: 'Preview your sensor enquiry.',
+    contactSeoTitle: 'Contact Engineering — Enquiry Preview',
+    contactSeoDescription:
+      'Truthful enquiry preview for Bocon platinum temperature sensors, elements, and test equipment.',
+    contactLead:
+      'Online enquiry delivery is not connected yet. This page demonstrates the structured enquiry fields and product handoff.',
+    previewNoticeTitle: 'Enquiry preview only. Online submission is unavailable.',
+    previewNoticeBody:
+      'Do not enter personal or confidential information. Nothing submitted in this preview form is transmitted or stored.',
+    previewFormNote: 'Preview form: nothing is sent or stored yet.',
+    previewSubmitBtn: 'Preview enquiry →',
+    previewResultHeading: 'Enquiry preview',
+    previewResultBody: 'Nothing was sent or stored. You can continue editing your draft.',
+    fieldName: 'Name',
+    fieldCompany: 'Company',
+    fieldEmail: 'Work email',
+    fieldCountry: 'Country / region',
+    fieldOptional: '(optional)',
+    fieldIntent: 'Enquiry type',
+    intents: {
+      application: 'Application question',
+      sample: 'Sample request',
+      quote: 'Quote request',
+      documents: 'Certificates & documents',
+      general: 'General enquiry',
+    },
+    fieldProduct: 'Model or custom configuration',
+    fieldProductPlaceholder: 'Select a known model or enter a custom requirement',
+    fieldQuantity: 'Quantity',
+    fieldQuantityUnit: 'Quantity unit',
+    quantityUnits: {
+      sensors: 'Sensors / single units',
+      pairs: 'Matched pairs',
+    },
+    fieldResource: 'Document reference',
+    fieldResourcePlaceholder: 'Optional document ID',
+    fieldRequirements: 'Your requirements',
+    fieldRequirementsPlaceholder:
+      'Temperature range, element (Pt100 / Pt500 / Pt1000), wiring, probe diameter and length, thread, cable, and quantity.',
+    noscriptNotice:
+      'Online submission is unavailable. Please email your requirements to',
+    infoIncludeHeading: 'What to include',
+    infoIncludeItems: [
+      'Element and wiring: Pt100, Pt500, or Pt1000; 2, 3, or 4-wire, dual element, or matched pair',
+      'Dimensions: tube diameter, insertion length, and process connection',
+      'Cable material and length, sample quantity (sensors vs. matched pairs), and estimated annual volume',
+    ],
     footerSummary:
       'Dalian Bocon Science & Technology Co., Ltd. designs and manufactures platinum temperature sensors, elements, and test equipment for OEMs and industry.',
     footerProducts: 'Products',
@@ -256,6 +313,63 @@ const UI = {
     },
     viewProduct: 'Technische Daten',
     emptyCategory: 'In dieser Kategorie sind derzeit keine geprüften deutschen Produkte veröffentlicht.',
+    hubEyebrow: 'Produktkatalog',
+    hubTitle: 'Temperaturfühler, Messelemente & Prüfgeräte',
+    hubIntro:
+      'Übersicht der geprüften Bocon-Sensorserien, Dünnschicht-Platinmesselemente und Ansprechzeitprüfgeräte. Kategorien ohne freigegebene Produktdatensätze werden unten transparent ausgewiesen.',
+    hubProductCount: (n) => (n === 1 ? '1 veröffentlichtes Produkt' : `${n} veröffentlichte Produkte`),
+    hubCategoryPending: 'Quellenprüfung läuft — derzeit noch keine deutschen Produktseiten veröffentlicht.',
+    hubEmptyCatalogue: 'Derzeit sind keine geprüften deutschen Kategorien oder Produkte veröffentlicht.',
+    hubClosingHeading: 'Suchen Sie eine bestimmte Ausführung oder kundenspezifische OEM-Sensoren?',
+    hubClosingBody:
+      'Nennen Sie uns Modellbezeichnung, Temperaturbereich, Einbaumaße oder senden Sie Ihre Zeichnung für eine technische Prüfung.',
+    contactTitle: 'Vorschau Ihrer Sensor-Anfrage.',
+    contactSeoTitle: 'Kontakt & Technik — Anfrage-Vorschau',
+    contactSeoDescription:
+      'Ehrliche Anfrage-Vorschau für Bocon Platin-Temperaturfühler, Messelemente und Prüfgeräte.',
+    contactLead:
+      'Der Online-Anfrageversand ist noch nicht angebunden. Diese Seite zeigt die strukturierten Anfragefelder und die Produktübergabe.',
+    previewNoticeTitle: 'Nur Anfrage-Vorschau. Online-Versand ist derzeit nicht aktiv.',
+    previewNoticeBody:
+      'Bitte geben Sie keine personenbezogenen oder vertraulichen Daten ein. Eingaben in diesem Vorschauformular werden weder übertragen noch gespeichert.',
+    previewFormNote: 'Vorschauformular: Es wird noch nichts gesendet oder gespeichert.',
+    previewSubmitBtn: 'Anfrage-Vorschau anzeigen →',
+    previewResultHeading: 'Anfrage-Vorschau',
+    previewResultBody: 'Es wurde nichts gesendet oder gespeichert. Sie können Ihren Entwurf weiter bearbeiten.',
+    fieldName: 'Name',
+    fieldCompany: 'Unternehmen',
+    fieldEmail: 'Geschäftliche E-Mail',
+    fieldCountry: 'Land / Region',
+    fieldOptional: '(optional)',
+    fieldIntent: 'Anfrageart',
+    intents: {
+      application: 'Anwendungsfrage',
+      sample: 'Musteranfrage',
+      quote: 'Angebotsanfrage',
+      documents: 'Zertifikate & Dokumente',
+      general: 'Allgemeine Anfrage',
+    },
+    fieldProduct: 'Modell oder kundenspezifische Ausführung',
+    fieldProductPlaceholder: 'Bekanntes Modell wählen oder eigene Anforderung eingeben',
+    fieldQuantity: 'Stückzahl',
+    fieldQuantityUnit: 'Einheit',
+    quantityUnits: {
+      sensors: 'Fühler / Einzelstücke',
+      pairs: 'Gepaarte Fühlerpaare',
+    },
+    fieldResource: 'Dokumentreferenz',
+    fieldResourcePlaceholder: 'Optionale Dokument-ID',
+    fieldRequirements: 'Ihre Anforderungen',
+    fieldRequirementsPlaceholder:
+      'Temperaturbereich, Messelement (Pt100 / Pt500 / Pt1000), Schaltungsart, Schutzrohr-Durchmesser und -Länge, Prozessanschluss, Leitung und Stückzahl.',
+    noscriptNotice:
+      'Der Online-Versand ist derzeit nicht aktiv. Bitte senden Sie Ihre Anforderungen per E-Mail an',
+    infoIncludeHeading: 'Hilfreiche Angaben',
+    infoIncludeItems: [
+      'Messelement und Schaltungsart: Pt100, Pt500 oder Pt1000; 2-, 3- oder 4-Leiter, Doppelelement oder gepaartes Fühlerpaar',
+      'Abmessungen: Schutzrohr-Durchmesser, Einbaulänge und Prozessanschluss',
+      'Leitungsmaterial und -länge, Musterstückzahl (Einzelfühler vs. Fühlerpaare) sowie geschätzter Jahresbedarf',
+    ],
     footerSummary:
       'Dalian Bocon Science & Technology Co., Ltd. entwickelt und fertigt Platin-Temperaturfühler, Messelemente und Prüfgeräte für OEMs und Industrie.',
     footerProducts: 'Produkte',
@@ -362,7 +476,18 @@ function renderLanguageSwitcher(locale, route) {
   return `<nav class="lang-switch" aria-label="${escapeHtml(ui.langSwitchLabel)}">${items.join('<span aria-hidden="true"> / </span>')}</nav>`;
 }
 
-function renderShell({ locale, seoTitle, seoDescription, route, routes, noindex, bodyClass, mainHtml, extraScripts = '' }) {
+function renderShell({
+  locale,
+  seoTitle,
+  seoDescription,
+  route,
+  routes,
+  noindex,
+  bodyClass,
+  activeNav = 'products',
+  mainHtml,
+  extraScripts = '',
+}) {
   const ui = UI[locale];
   const fullTitle = seoTitle.includes('Bocon') ? seoTitle : `${seoTitle} | Bocon`;
   const robotsMeta = noindex ? '\n  <meta name="robots" content="noindex, nofollow">' : '';
@@ -373,8 +498,11 @@ function renderShell({ locale, seoTitle, seoDescription, route, routes, noindex,
   const hreflangBlock = hreflangTags ? `\n${hreflangTags}` : '';
 
   const homeHref = routes.resolvePage('/index.html');
-  const productsHref = routes.resolvePage('/v2/products.html');
+  const productsHref = routes.resolvePage(`/${locale}/products/index.html`);
   const contactHref = routes.enquiryUrl(locale, { intent: 'general' });
+  const fullBodyClass = bodyClass ? `catalogue-page ${bodyClass}` : 'catalogue-page';
+  const productsCurrent = activeNav === 'products' ? ' aria-current="true"' : '';
+  const contactCurrent = activeNav === 'contact' ? ' aria-current="true"' : '';
 
   return `<!doctype html>
 <html lang="${escapeHtml(locale)}">
@@ -388,15 +516,15 @@ function renderShell({ locale, seoTitle, seoDescription, route, routes, noindex,
   <link rel="stylesheet" href="${escapeHtml(routes.resolveAsset('v2/assets/site.css'))}">
   <link rel="stylesheet" href="${escapeHtml(routes.resolveAsset('assets/catalogue.css'))}">
 </head>
-<body class="${escapeHtml(bodyClass)}">
+<body class="${escapeHtml(fullBodyClass)}">
   <a class="skip" href="#main">${escapeHtml(ui.skip)}</a>
   <header>
     <div class="wrap nav">
       <a class="brand" href="${escapeHtml(homeHref)}" aria-label="Bocon ${escapeHtml(ui.home)}"><img src="${escapeHtml(routes.resolveAsset('v2/logo/bocon-wordmark.png'))}" width="272" height="92" alt="Bocon"></a>
       <nav class="menu" id="main-menu" aria-label="${escapeHtml(ui.navLabel)}">
         <ul class="menu-list">
-          <li><a href="${escapeHtml(productsHref)}" aria-current="true">${escapeHtml(ui.products)}</a></li>
-          <li><a href="${escapeHtml(contactHref)}">${escapeHtml(ui.contact)}</a></li>
+          <li><a href="${escapeHtml(productsHref)}"${productsCurrent}>${escapeHtml(ui.products)}</a></li>
+          <li><a href="${escapeHtml(contactHref)}"${contactCurrent}>${escapeHtml(ui.contact)}</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
@@ -961,5 +1089,302 @@ export function renderCategory(
     noindex,
     bodyClass: `category-page category-kind-${category.kind}`,
     mainHtml: [breadcrumbsHtml, heroHtml, contentHtml].join('\n\n'),
+  });
+}
+
+function makeStaticRoute(locale, relPath, routes) {
+  const otherLocale = locale === 'en' ? 'de' : 'en';
+  const otherRelPath = relPath.replace(`/${locale}/`, `/${otherLocale}/`);
+  const href = routes.resolvePage(relPath);
+  const otherHref = routes.resolvePage(otherRelPath);
+  const url = routes.origin ? `${routes.origin}${href}` : href;
+  const otherUrl = routes.origin ? `${routes.origin}${otherHref}` : otherHref;
+  return {
+    relPath,
+    href,
+    url,
+    alternates: {
+      [locale]: url,
+      [otherLocale]: otherUrl,
+    },
+    alternateHrefs: {
+      [locale]: href,
+      [otherLocale]: otherHref,
+    },
+  };
+}
+
+/**
+ * Renders the localized 8+2 catalogue hub (`en/products/index.html` or `de/products/index.html`).
+ * Lists only eligible categories/products and notes readiness gaps honestly instead of dead links.
+ */
+export function renderCatalogueHub(publicInput, locale, { routes, noindex = false } = {}) {
+  assertLocale(locale);
+  const ui = UI[locale];
+  const route = makeStaticRoute(locale, `/${locale}/products/index.html`, routes);
+
+  const products = publicInput.products || [];
+  const categories = publicInput.categories || [];
+  const productById = new Map(products.map((p) => [p.id, p]));
+
+  const breadcrumbsHtml = `    <nav class="wrap breadcrumbs" aria-label="${escapeHtml(ui.breadcrumbLabel)}">
+      <a href="${escapeHtml(routes.resolvePage('/index.html'))}">${escapeHtml(ui.home)}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">${escapeHtml(ui.products)}</span>
+    </nav>`;
+
+  const heroHtml = `    <section class="wrap section-space category-hero">
+      <span class="eyebrow">${escapeHtml(ui.hubEyebrow)}</span>
+      <h1>${escapeHtml(ui.hubTitle)}</h1>
+      <p class="lead">${escapeHtml(ui.hubIntro)}</p>
+    </section>`;
+
+  const eligibleCategories = categories.filter((c) => Boolean(c.locales?.[locale]));
+
+  let gridHtml;
+  if (eligibleCategories.length === 0) {
+    gridHtml = `    <section class="wrap section-space">
+      <p class="placeholder-note">${escapeHtml(ui.hubEmptyCatalogue)}</p>
+    </section>`;
+  } else {
+    const cards = eligibleCategories.map((cat) => {
+      const catLoc = cat.locales[locale];
+      const catRoute = routes?.categories?.[cat.id]?.[locale];
+      const readyProducts = (cat.orderedProductIds || [])
+        .map((pid) => productById.get(pid))
+        .filter((p) => p && p.locales?.[locale] && routes?.products?.[p.id]?.[locale]);
+
+      if (readyProducts.length > 0 && catRoute) {
+        const modelSummary = readyProducts
+          .flatMap((p) => p.modelCodes || [])
+          .slice(0, 6)
+          .join(' · ');
+        return `<a class="hub-card" href="${escapeHtml(catRoute.href)}">
+          <h2>${escapeHtml(catLoc.title)}</h2>
+          <p>${escapeHtml(catLoc.intro)}</p>
+          <span class="hub-card-meta">${escapeHtml(ui.hubProductCount(readyProducts.length))}${modelSummary ? ` · ${escapeHtml(modelSummary)}` : ''} →</span>
+        </a>`;
+      }
+
+      return `<div class="hub-card hub-card-pending">
+          <h2>${escapeHtml(catLoc.title)}</h2>
+          <p>${escapeHtml(catLoc.intro)}</p>
+          <span class="hub-card-meta">${escapeHtml(ui.hubCategoryPending)}</span>
+        </div>`;
+    });
+
+    gridHtml = `    <section class="wrap section-space">
+      <div class="hub-grid">
+        ${cards.join('\n        ')}
+      </div>
+    </section>`;
+  }
+
+  const enquiryHref = routes.enquiryUrl(locale, { intent: 'general' });
+  const closingHtml = `    <section class="wrap compact-contact">
+      <div class="simple-product-contact">
+        <div>
+          <h2>${escapeHtml(ui.hubClosingHeading)}</h2>
+          <p>${escapeHtml(ui.hubClosingBody)}</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn primary" href="${escapeHtml(enquiryHref)}">${escapeHtml(ui.sendEnquiry)} →</a>
+        </div>
+      </div>
+    </section>`;
+
+  return renderShell({
+    locale,
+    seoTitle: `${ui.hubEyebrow} — ${ui.hubTitle}`,
+    seoDescription: ui.hubIntro,
+    route,
+    routes,
+    noindex,
+    bodyClass: 'catalogue-hub-page',
+    activeNav: 'products',
+    mainHtml: [breadcrumbsHtml, heroHtml, gridHtml, closingHtml].join('\n\n'),
+  });
+}
+
+function safeJsonForScript(obj) {
+  return JSON.stringify(obj)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026');
+}
+
+/**
+ * Renders the localized truthful-preview enquiry page (`en/contact.html` or `de/contact.html`).
+ * Preserves BOC-001 truthful-preview wording, keeps fields editable on submit,
+ * distinguishes sensors vs. matched pairs, and safely embeds public allowlist data
+ * for URL query pre-fill and EN/DE context handoff.
+ */
+export function renderEnquiryPage(publicInput, locale, { routes, noindex = false } = {}) {
+  assertLocale(locale);
+  const ui = UI[locale];
+  const otherLocale = locale === 'en' ? 'de' : 'en';
+  const route = makeStaticRoute(locale, `/${locale}/contact.html`, routes);
+
+  const publicProducts = (publicInput.products || []).map((p) => ({
+    id: p.id,
+    modelCodes: [...(p.modelCodes || [])],
+    variants: (p.variants || []).map((v) => ({
+      id: v.id,
+      modelCode: v.modelCode,
+    })),
+  }));
+
+  const publicResources = (publicInput.resources || []).map((r) => ({
+    id: r.id,
+    type: r.type,
+    revision: r.revision,
+    language: r.language,
+    access: r.access,
+  }));
+
+  const allModelCodes = [];
+  const seenCodes = new Set();
+  for (const prod of publicProducts) {
+    for (const code of prod.modelCodes) {
+      if (!seenCodes.has(code)) {
+        seenCodes.add(code);
+        allModelCodes.push(code);
+      }
+    }
+    for (const v of prod.variants) {
+      if (!seenCodes.has(v.modelCode)) {
+        seenCodes.add(v.modelCode);
+        allModelCodes.push(v.modelCode);
+      }
+    }
+  }
+
+  const embeddedData = {
+    locale,
+    alternateContactHref: routes.resolvePage(`/${otherLocale}/contact.html`),
+    allowedIntents: ['application', 'sample', 'quote', 'documents', 'general'],
+    products: publicProducts,
+    resources: publicResources,
+  };
+
+  const breadcrumbsHtml = `    <nav class="wrap breadcrumbs" aria-label="${escapeHtml(ui.breadcrumbLabel)}">
+      <a href="${escapeHtml(routes.resolvePage('/index.html'))}">${escapeHtml(ui.home)}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">${escapeHtml(ui.contact)}</span>
+    </nav>`;
+
+  const heroHtml = `    <section class="wrap">
+      <div class="contact-hero">
+        <span class="eyebrow">${escapeHtml(ui.contact)}</span>
+        <h1>${escapeHtml(ui.contactTitle)}</h1>
+        <p class="lead">${escapeHtml(ui.contactLead)}</p>
+      </div>
+    </section>`;
+
+  const intentOptionsHtml = Object.entries(ui.intents)
+    .map(([val, label]) => `<option value="${escapeHtml(val)}">${escapeHtml(label)}</option>`)
+    .join('');
+
+  const unitOptionsHtml = Object.entries(ui.quantityUnits)
+    .map(([val, label]) => `<option value="${escapeHtml(val)}">${escapeHtml(label)}</option>`)
+    .join('');
+
+  const datalistHtml = allModelCodes
+    .map((code) => `<option value="${escapeHtml(code)}"></option>`)
+    .join('');
+
+  const includeItemsHtml = ui.infoIncludeItems
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join('\n            ');
+
+  const formHtml = `    <section class="wrap contact-layout" id="enquiry">
+      <div>
+        <div class="preview-banner" role="note">
+          <strong>${escapeHtml(ui.previewNoticeTitle)}</strong>
+          ${escapeHtml(ui.previewNoticeBody)}
+        </div>
+        <p class="enquiry-context-note" id="enquiry-context-note" hidden></p>
+        <form id="enquiry-form" class="enquiry-form" hidden>
+          <div class="form-grid">
+            <div class="field">
+              <label for="name">${escapeHtml(ui.fieldName)}</label>
+              <input id="name" name="name" autocomplete="name" required maxlength="100">
+            </div>
+            <div class="field">
+              <label for="company">${escapeHtml(ui.fieldCompany)}</label>
+              <input id="company" name="company" autocomplete="organization" required maxlength="150">
+            </div>
+            <div class="field">
+              <label for="email">${escapeHtml(ui.fieldEmail)}</label>
+              <input id="email" name="email" type="email" autocomplete="email" required maxlength="150">
+            </div>
+            <div class="field">
+              <label for="country">${escapeHtml(ui.fieldCountry)} <span>${escapeHtml(ui.fieldOptional)}</span></label>
+              <input id="country" name="country" autocomplete="country-name" maxlength="100">
+            </div>
+            <div class="field">
+              <label for="intent">${escapeHtml(ui.fieldIntent)}</label>
+              <select id="intent" name="intent">${intentOptionsHtml}</select>
+            </div>
+            <div class="field">
+              <label for="product">${escapeHtml(ui.fieldProduct)} <span>${escapeHtml(ui.fieldOptional)}</span></label>
+              <input id="product" name="product" list="catalogue-models" maxlength="120" placeholder="${escapeHtml(ui.fieldProductPlaceholder)}">
+              <datalist id="catalogue-models">${datalistHtml}</datalist>
+            </div>
+            <div class="field">
+              <label for="quantity">${escapeHtml(ui.fieldQuantity)} <span>${escapeHtml(ui.fieldOptional)}</span></label>
+              <input id="quantity" name="quantity" type="number" min="1" step="1" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="quantityUnit">${escapeHtml(ui.fieldQuantityUnit)}</label>
+              <select id="quantityUnit" name="quantityUnit">${unitOptionsHtml}</select>
+            </div>
+            <div class="field full">
+              <label for="resource">${escapeHtml(ui.fieldResource)} <span>${escapeHtml(ui.fieldOptional)}</span></label>
+              <input id="resource" name="resource" maxlength="150" placeholder="${escapeHtml(ui.fieldResourcePlaceholder)}">
+            </div>
+            <div class="field full">
+              <label for="requirements">${escapeHtml(ui.fieldRequirements)}</label>
+              <textarea id="requirements" name="requirements" required maxlength="1500" placeholder="${escapeHtml(ui.fieldRequirementsPlaceholder)}"></textarea>
+            </div>
+          </div>
+          <p class="form-note">${escapeHtml(ui.previewFormNote)}</p>
+          <button class="btn primary" type="submit">${escapeHtml(ui.previewSubmitBtn)}</button>
+          <p class="status-message" id="draft-status" role="status" aria-live="polite"></p>
+          <div id="draft-preview" class="draft-preview" tabindex="-1" hidden>
+            <h3>${escapeHtml(ui.previewResultHeading)}</h3>
+            <p>${escapeHtml(ui.previewResultBody)}</p>
+          </div>
+        </form>
+        <noscript><p>${escapeHtml(ui.noscriptNotice)} <a class="text-link" href="mailto:export@bocontech.com">export@bocontech.com</a> / <a class="text-link" href="mailto:beitoo@bocontech.com">beitoo@bocontech.com</a>.</p></noscript>
+      </div>
+      <aside class="stack">
+        <div class="info-card">
+          <h3>Dalian Bocon Science &amp; Technology Co., Ltd.</h3>
+          <p>9-1, No. 23, Shidai-E Rd, Dalian Bonded Area, Dalian, China</p>
+          <p>Email: <a class="text-link" href="mailto:beitoo@bocontech.com">beitoo@bocontech.com</a> · <a class="text-link" href="mailto:export@bocontech.com">export@bocontech.com</a><br>Tel: <a href="tel:+8641188122286">+86-411-88122286</a></p>
+        </div>
+        <div class="info-card">
+          <h3>${escapeHtml(ui.infoIncludeHeading)}</h3>
+          <ul>
+            ${includeItemsHtml}
+          </ul>
+        </div>
+      </aside>
+    </section>`;
+
+  const extraScripts = `\n  <script id="enquiry-catalogue-data" type="application/json">${safeJsonForScript(embeddedData)}</script>\n  <script type="module" src="${escapeHtml(routes.resolveAsset('assets/enquiry-preview.js'))}"></script>`;
+
+  return renderShell({
+    locale,
+    seoTitle: ui.contactSeoTitle,
+    seoDescription: ui.contactSeoDescription,
+    route,
+    routes,
+    noindex,
+    bodyClass: 'contact-page',
+    activeNav: 'contact',
+    mainHtml: [breadcrumbsHtml, heroHtml, formHtml].join('\n\n'),
+    extraScripts,
   });
 }
